@@ -1,0 +1,15 @@
+<resources>
+    <style name="CustomAppTheme" parent="@style/Theme.MaterialComponents.Light">
+        <item name="colorPrimary">@color/color1</item>
+        <item name="colorPrimaryDark">@color/color2</item>
+        <item name="colorAccent">@color/color3</item>
+        <item name="android:textColorPrimary">@color/color4</item>
+        <item name="android:fontFamily">sans-serif-black</item>
+        <item name="android:textColorSecondary">@color/color1</item>
+        <item name="android:textColorTertiary">@color/color2</item>
+        <item name="android:windowBackground">@color/color3</item>
+        <item name="colorControlActivated">@color/color4</item>
+        <item name="colorOnBackground">@color/color3</item>
+        <item name="colorControlNormal">@color/color2</item>
+    </style>
+</resources>
