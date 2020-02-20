@@ -1,4 +1,4 @@
-# Sonect Shop SDK for Android [PRELIMINARY]
+# Sonect SDK for Android [PRELIMINARY]
 
 In this document we will go through the necessary steps to integrate
 Sonect SDK in your Android app. 
