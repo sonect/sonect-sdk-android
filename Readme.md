@@ -179,7 +179,7 @@ SDK provides several callbacks. Some of them won’t be fired in case of deep pa
 Main entry point for SDK is ch.sonect.sdk.EntryPointFragment
 When SDK object was configured EntryPointFragment could be added to the fragment stack
 
-```kotline
+```kotlin
 supportFragmentManager.beginTransaction().replace(R.id.container, sonectSDK.getStartFragment()).addToBackStack(null).commit()
 ```
 
