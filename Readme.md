@@ -30,7 +30,8 @@ Add to `build.gradle` of your app
 ```Gradle
 dependencies {
 	...
-    implementation ('com.github.sonect:android-user-sdk:{latestVersion}}') {
+    implementation ('com.github.sonect:android-user-sdk:{latestVersion}@aar') {
+        transitive = true
         exclude group: "idenfySdk"
         exclude group: "io.anyline"
     }
