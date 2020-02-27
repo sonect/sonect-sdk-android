@@ -24,7 +24,7 @@ android {
 }
 
 dependencies {
-    implementation ('com.github.sonect.android-user-sdk:sdk:1.0.14') {
+    implementation ('com.github.sonect.android-user-sdk:sdk:1.0.15') {
         exclude group: "idenfySdk"
         exclude group: "io.anyline"
     }
