@@ -1,15 +1,16 @@
 <resources>
     <style name="CustomAppTheme" parent="@style/Theme.MaterialComponents.Light">
-        <item name="colorPrimary">@color/color1</item>
-        <item name="colorPrimaryDark">@color/color2</item>
-        <item name="colorAccent">@color/color3</item>
-        <item name="android:textColorPrimary">@color/color4</item>
-        <item name="android:fontFamily">sans-serif-black</item>
-        <item name="android:textColorSecondary">@color/color1</item>
-        <item name="android:textColorTertiary">@color/color2</item>
-        <item name="android:windowBackground">@color/color3</item>
-        <item name="colorControlActivated">@color/color4</item>
-        <item name="colorOnBackground">@color/color3</item>
-        <item name="colorControlNormal">@color/color2</item>
+        <item name="sonectColor1">@color/softBlue</item>
+        <item name="sonectColor2">@color/redViolet</item>
+        <item name="sonectColor3">@color/flamingo</item>
+        <item name="sonectColor4">@color/orangeYellow</item>
+        <item name="sonectColor5">@color/greenyYellow</item>
+
+        <item name="sonectFontBlack">@font/raleway_black</item>
+        <item name="sonectFontBold">@font/raleway_bold</item>
+        <item name="sonectFontRegular">@font/raleway_regular</item>
+        <item name="sonectFontSemiBold">@font/raleway_semibold</item>
+        <item name="sonectFontMedium">@font/raleway_medium</item>
+        <item name="sonectFontLight">@font/raleway_light</item>
     </style>
 </resources>

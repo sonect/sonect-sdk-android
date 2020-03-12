@@ -306,3 +306,28 @@ btnResumeSdkWithReceipt.setOnClickListener {
 ```
 
 You must provide PaymentMethodReference to be able to return to dashboard and continue using SDK without closing and reopening it from outer app.
+
+## Theming and styling
+
+As a developer you must provide 5 colors and 6 fonts to the app. You could use default colors provided by sonect OR use your own but still it's requried to provide that values in your Theme.
+
+![Sonect colors](https://monosnap.com/direct/9CD5Z59KhaRXUurd8fyeZ5OUwB7yhD)
+
+Here the list of required fields with values that could be taken AS IS
+
+```xml
+        <item name="sonectColor1">@color/softBlue</item>
+        <item name="sonectColor2">@color/redViolet</item>
+        <item name="sonectColor3">@color/flamingo</item>
+        <item name="sonectColor4">@color/orangeYellow</item>
+        <item name="sonectColor5">@color/greenyYellow</item>
+
+        <item name="sonectFontBlack">@font/raleway_black</item>
+        <item name="sonectFontBold">@font/raleway_bold</item>
+        <item name="sonectFontRegular">@font/raleway_regular</item>
+        <item name="sonectFontSemiBold">@font/raleway_semibold</item>
+        <item name="sonectFontMedium">@font/raleway_medium</item>
+        <item name="sonectFontLight">@font/raleway_light</item>
+```
+
+!Notice that by definig colors and font you must provide references but not plain values, e.g. #ffffff will fail as well as san-serif-medium.
