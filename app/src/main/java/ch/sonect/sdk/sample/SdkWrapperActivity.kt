@@ -47,8 +47,7 @@ class SdkWrapperActivity : AppCompatActivity() {
             .userCredentials(
                 SonectSDK.Config.UserCredentials(
                     intent.getStringExtra(UID),
-                    intent.getStringExtra(TSDK), intent.getStringExtra(SIGN),
-                    ""
+                    intent.getStringExtra(TSDK), intent.getStringExtra(SIGN)
                 )
             )
             .sdkCallbacks(object : SdkActionsCallback {

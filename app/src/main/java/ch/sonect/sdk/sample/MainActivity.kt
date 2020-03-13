@@ -41,7 +41,7 @@ class MainActivity : AppCompatActivity() {
             userId = etUserId.text.toString()
             val signature = calculateSignature(userId)
             SDKEntryPointActivity.start(
-                this, SonectSDK.Config.UserCredentials(userId, getTokenSDK(), signature,""),
+                this, SonectSDK.Config.UserCredentials(userId, getTokenSDK(), signature),
                 arrayListOf(
                     SDKEntryPointActivity.PaymentMethodReference(
                         "BALANCE", R.mipmap.ic_launcher, "**** 1234", 302.44f
@@ -58,7 +58,7 @@ class MainActivity : AppCompatActivity() {
             userId = etUserId.text.toString()
             val signature = calculateSignature(userId)
             SDKEntryPointActivity.startWithdraw(
-                this, SonectSDK.Config.UserCredentials(userId, tokenSDK, signature, ""),
+                this, SonectSDK.Config.UserCredentials(userId, tokenSDK, signature),
                 SDKEntryPointActivity.NewTransactionReference(
                     "BALANCE", "**** 1234", "30", "CHF"
                 ),

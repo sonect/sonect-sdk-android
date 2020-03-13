@@ -310,8 +310,9 @@ You must provide PaymentMethodReference to be able to return to dashboard and co
 ## Theming and styling
 
 As a developer you must provide 5 colors and 6 fonts to the app. You could use default colors provided by sonect OR use your own but still it's requried to provide that values in your Theme.
+Parent theme of the activity that include Sonect fragment must inherit the Material theme.
 
-![Sonect colors](https://monosnap.com/direct/9CD5Z59KhaRXUurd8fyeZ5OUwB7yhD)
+![Sonect colors](https://api.monosnap.com/file/download?id=300PYTgN9OUffCGbVDMJ0nNswZBI3l)
 
 Here the list of required fields with values that could be taken AS IS
 
