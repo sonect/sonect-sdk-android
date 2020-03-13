@@ -1,5 +1,5 @@
 <resources>
-    <style name="CustomAppTheme" parent="@style/Theme.MaterialComponents.Light">
+    <style name="CustomAppTheme" parent="Theme.AppCompat">
         <item name="sonectColor1">@color/softBlue</item>
         <item name="sonectColor2">@color/redViolet</item>
         <item name="sonectColor3">@color/flamingo</item>
