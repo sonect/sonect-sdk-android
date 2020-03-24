@@ -331,3 +331,16 @@ Here the list of required fields with values that could be taken AS IS
 ```
 
 !Notice that by definig colors and font you must provide references but not plain values, e.g. #ffffff will fail as well as san-serif-medium.
+
+## Proguard / R8
+In case you're using proguard or R8 to obfuscate and optimize your code,
+the following rules should be enough to maintain all expected functionality.
+Please let us know if you find any issues.
+
+```xml
+-keepclassmembers class * {
+    @com.google.gson.annotations.SerializedName <fields>;
+}
+```
+
+This is needed to maintain json serialization after proguard.
