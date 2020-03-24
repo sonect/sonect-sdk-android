@@ -1,0 +1,48 @@
+version: 2
+jobs:
+  master_build:
+    working_directory: ~/code
+    docker:
+      - image: circleci/android:api-28-alpha
+    environment:
+      JVM_OPTS: -Xmx3200m
+    steps:
+      - checkout
+      - restore_cache:
+          key: jars-{{ checksum "build.gradle" }}-{{ checksum  "app/build.gradle" }}
+      - run:
+          name: Chmod permissions
+          command: chmod +x gradlew
+      - run:
+          name: Download Dependencies
+          command: ./gradlew androidDependencies
+      - save_cache:
+          paths:
+            - ~/.gradle
+          key: jars-{{ checksum "build.gradle" }}-{{ checksum  "app/bui ld.gradle" }}
+      - run:
+          name: Run unit test for dev release
+          command: ./gradlew testReleaseUnitTest
+      - store_artifacts:
+          path: sdk/build/reports
+          destination: sdk/reports
+      - store_test_results:
+          path: sdk/build/test-results
+          destination: sdk/test-results
+      - store_artifacts:
+          path: sample/build/reports
+          destination: sample/reports
+      - store_test_results:
+          path: sample/build/test-results
+          destination: sample/test-results
+      - run:
+          name: Build and upload sample debug to firebase
+          command: ./gradlew assembleRelease -PversionCode=$CIRCLE_BUILD_NUM appDistributionUploadRelease
+workflows:
+  version: 2
+  build_app:
+    jobs:
+      - master_build:
+          filters:
+            branches:
+              only: master
