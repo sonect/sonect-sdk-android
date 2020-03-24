@@ -70,9 +70,11 @@ buildscript {
 }
 
 dependencies {
-    implementation('com.github.sonect:android-user-sdk:1.2.13@aar') {
+    implementation('com.github.sonect:android-user-sdk:1.2.14@aar') {
         transitive = true
         exclude group: "idenfySdk"
         exclude group: "io.anyline"
     }
 }
+
+apply plugin: 'com.google.gms.google-services'
