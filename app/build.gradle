@@ -18,7 +18,7 @@ android {
         minSdkVersion 19
         targetSdkVersion 28
         versionCode getVersionCode()
-        versionName "1.0"
+        versionName "1.0+" + getVersionCode()
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary true
         multiDexEnabled true
@@ -70,7 +70,7 @@ buildscript {
 }
 
 dependencies {
-    implementation('com.github.sonect:android-user-sdk:1.2.14@aar') {
+    implementation('com.github.sonect:android-user-sdk:1.2.15@aar') {
         transitive = true
         exclude group: "idenfySdk"
         exclude group: "io.anyline"
