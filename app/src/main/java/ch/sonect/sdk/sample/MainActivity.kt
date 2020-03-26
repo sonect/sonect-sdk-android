@@ -17,6 +17,7 @@ class MainActivity : AppCompatActivity() {
     var userId = ""
     var clientId = ""
     var clientSecret = ""
+    var hmackKey = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,16 +27,18 @@ class MainActivity : AppCompatActivity() {
         btnStartSdkFragment.setOnClickListener {
             userId = etUserId.text.toString()
             SdkWrapperActivity.start(
-                this, chkLight.isChecked, userId, getTokenSDK(), calculateSignature(userId), getSelectedEnviroment()
+                this, chkLight.isChecked, userId, getTokenSDK(), calculateSignature(userId), getSelectedEnviroment(), clientId, hmackKey
             )
         }
 
         userId = getDefaultUserId()
         clientId = getDefaultClientId()
         clientSecret = getDefaultClientSecret()
+        hmackKey = getDefaulltHmackKey()
         etUserId.setText(userId)
         etClientId.setText(clientId)
         etClientSecret.setText(clientSecret)
+        etHmackKey.setText(hmackKey)
 
         groupEnviroment.setOnCheckedChangeListener { group, checkedId ->
             userId = getDefaultUserId()
@@ -85,7 +88,7 @@ class MainActivity : AppCompatActivity() {
     fun getDefaultClientId(): String {
         return when (getSelectedEnviroment()) {
             SonectSDK.Config.Enviroment.DEV -> "554fd710-a7d1-11e9-a018-233b79f96ead"
-            SonectSDK.Config.Enviroment.STAGING -> "08828a10-bdaf-11e9-be4c-5db5328cafa4"
+            SonectSDK.Config.Enviroment.STAGING -> "f6f045f0-5c67-11ea-a6cf-2f39fea80425"
             SonectSDK.Config.Enviroment.PRODUCTION -> ""
         }
     }
@@ -93,23 +96,23 @@ class MainActivity : AppCompatActivity() {
     fun getDefaultClientSecret(): String {
         return when (getSelectedEnviroment()) {
             SonectSDK.Config.Enviroment.DEV -> "426b5de53a9c19f820995cc8f666d2b38ebb4f9569c8d59df8781be38c731cb9"
-            SonectSDK.Config.Enviroment.STAGING -> "c999d5adab9b065b166bce6e58b84050349088ab8e7948248088068c7c534f60"
+            SonectSDK.Config.Enviroment.STAGING -> "1108f1126cc7977190627d95546d86784a9a2b6b7e7f0f20552c7fc1777e7a50"
             SonectSDK.Config.Enviroment.PRODUCTION -> ""
         }
     }
 
     fun getDefaultUserId(): String {
         return when (getSelectedEnviroment()) {
-            SonectSDK.Config.Enviroment.DEV -> "etLiIhOADD3F7EUZgdDackmmZbRji5"
-            SonectSDK.Config.Enviroment.STAGING -> "A1MrFAOjZ24YQJHexSrlC3yskOOuGS"
+            SonectSDK.Config.Enviroment.DEV -> "CTLoZ7Gx1Tw2XamJLiD9TNtnaj1ogL"
+            SonectSDK.Config.Enviroment.STAGING -> "5d52879f41961500109b76f6"
             SonectSDK.Config.Enviroment.PRODUCTION -> ""
         }
     }
 
-    fun getHmackKey(): String {
+    fun getDefaulltHmackKey(): String {
         return when (getSelectedEnviroment()) {
             SonectSDK.Config.Enviroment.DEV -> "fcadbb8602f6885bedd71bd9afdb1d8a4831e1f1bff24118581335906f8b3d48"
-            SonectSDK.Config.Enviroment.STAGING -> ""
+            SonectSDK.Config.Enviroment.STAGING -> "a5b9f0b330fec060c749eedb55bad520461a523f153444268311d210a88484cd"
             SonectSDK.Config.Enviroment.PRODUCTION -> ""
         }
     }
@@ -127,7 +130,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun createHmac(data: ByteArray): ByteArray {
-        val keySpec = SecretKeySpec(getHmackKey().toByteArray(), "HmacSHA256")
+        val keySpec = SecretKeySpec(hmackKey.toByteArray(), "HmacSHA256")
         val mac = Mac.getInstance("HmacSHA256")
         mac.init(keySpec)
 

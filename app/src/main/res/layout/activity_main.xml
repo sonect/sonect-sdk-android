@@ -18,16 +18,22 @@
         android:hint="User id" />
 
     <androidx.appcompat.widget.AppCompatEditText
-    android:id="@+id/etClientId"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:hint="Client id" />
+        android:id="@+id/etClientId"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Client id" />
 
     <androidx.appcompat.widget.AppCompatEditText
         android:id="@+id/etClientSecret"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Client secret" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/etHmackKey"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Hmack key" />
 
     <TextView
         android:layout_width="wrap_content"
