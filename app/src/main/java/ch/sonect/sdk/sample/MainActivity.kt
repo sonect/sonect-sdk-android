@@ -15,6 +15,8 @@ class MainActivity : AppCompatActivity() {
 
     // Id shuold be some value unique and constant for single user
     var userId = ""
+    var clientId = ""
+    var clientSecret = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,7 +31,11 @@ class MainActivity : AppCompatActivity() {
         }
 
         userId = getDefaultUserId()
+        clientId = getDefaultClientId()
+        clientSecret = getDefaultClientSecret()
         etUserId.setText(userId)
+        etClientId.setText(clientId)
+        etClientSecret.setText(clientSecret)
 
         groupEnviroment.setOnCheckedChangeListener { group, checkedId ->
             userId = getDefaultUserId()
@@ -53,7 +59,7 @@ class MainActivity : AppCompatActivity() {
         btnResumeSdkWithReceipt.setOnClickListener {
             // Each integration should have it's own sdk token
             val tokenSDK =
-                Base64.encodeToString("${getClientId()}:${getClientSecret()}".toByteArray(), Base64.DEFAULT)
+                Base64.encodeToString("${clientId}:${clientSecret}".toByteArray(), Base64.DEFAULT)
                     .replace("\n", "")
             userId = etUserId.text.toString()
             val signature = calculateSignature(userId)
@@ -72,11 +78,11 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun getTokenSDK(): String {
-        return Base64.encodeToString("${getClientId()}:${getClientSecret()}".toByteArray(), Base64.DEFAULT)
+        return Base64.encodeToString("${clientId}:${clientSecret}".toByteArray(), Base64.DEFAULT)
             .replace("\n", "")
     }
 
-    fun getClientId(): String {
+    fun getDefaultClientId(): String {
         return when (getSelectedEnviroment()) {
             SonectSDK.Config.Enviroment.DEV -> "554fd710-a7d1-11e9-a018-233b79f96ead"
             SonectSDK.Config.Enviroment.STAGING -> "08828a10-bdaf-11e9-be4c-5db5328cafa4"
@@ -84,7 +90,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    fun getClientSecret(): String {
+    fun getDefaultClientSecret(): String {
         return when (getSelectedEnviroment()) {
             SonectSDK.Config.Enviroment.DEV -> "426b5de53a9c19f820995cc8f666d2b38ebb4f9569c8d59df8781be38c731cb9"
             SonectSDK.Config.Enviroment.STAGING -> "c999d5adab9b065b166bce6e58b84050349088ab8e7948248088068c7c534f60"
@@ -116,7 +122,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun calculateSignature(uid: String): String {
-        val hmacString = "${getClientId()}:$packageName:$uid"
+        val hmacString = "${clientId}:$packageName:$uid"
         return Base64.encodeToString(createHmac(hmacString.toByteArray()), Base64.DEFAULT).trim()
     }
 
