@@ -26,6 +26,9 @@ class MainActivity : AppCompatActivity() {
 
         btnStartSdkFragment.setOnClickListener {
             userId = etUserId.text.toString()
+            clientId = etClientId.text.toString()
+            clientSecret = etClientSecret.text.toString()
+            hmackKey = etHmackKey.text.toString()
             SdkWrapperActivity.start(
                 this, chkLight.isChecked, userId, getTokenSDK(), calculateSignature(userId), getSelectedEnviroment(), clientId, hmackKey
             )
@@ -42,7 +45,13 @@ class MainActivity : AppCompatActivity() {
 
         groupEnviroment.setOnCheckedChangeListener { group, checkedId ->
             userId = getDefaultUserId()
+            clientId = getDefaultClientId()
+            clientSecret = getDefaultClientSecret()
+            hmackKey = getDefaulltHmackKey()
             etUserId.setText(userId)
+            etClientId.setText(clientId)
+            etClientSecret.setText(clientSecret)
+            etHmackKey.setText(hmackKey)
         }
 
         btnStartSdkActivity.setOnClickListener {
@@ -87,7 +96,7 @@ class MainActivity : AppCompatActivity() {
 
     fun getDefaultClientId(): String {
         return when (getSelectedEnviroment()) {
-            SonectSDK.Config.Enviroment.DEV -> "554fd710-a7d1-11e9-a018-233b79f96ead"
+            SonectSDK.Config.Enviroment.DEV -> "6b245690-5c64-11ea-8a84-1727a27b32a7"
             SonectSDK.Config.Enviroment.STAGING -> "f6f045f0-5c67-11ea-a6cf-2f39fea80425"
             SonectSDK.Config.Enviroment.PRODUCTION -> ""
         }
@@ -95,7 +104,7 @@ class MainActivity : AppCompatActivity() {
 
     fun getDefaultClientSecret(): String {
         return when (getSelectedEnviroment()) {
-            SonectSDK.Config.Enviroment.DEV -> "426b5de53a9c19f820995cc8f666d2b38ebb4f9569c8d59df8781be38c731cb9"
+            SonectSDK.Config.Enviroment.DEV -> "99340a11f386333689e356ab866fa97f44b54cf4ceb542a24f27764b328e4cda"
             SonectSDK.Config.Enviroment.STAGING -> "1108f1126cc7977190627d95546d86784a9a2b6b7e7f0f20552c7fc1777e7a50"
             SonectSDK.Config.Enviroment.PRODUCTION -> ""
         }
@@ -111,7 +120,7 @@ class MainActivity : AppCompatActivity() {
 
     fun getDefaulltHmackKey(): String {
         return when (getSelectedEnviroment()) {
-            SonectSDK.Config.Enviroment.DEV -> "fcadbb8602f6885bedd71bd9afdb1d8a4831e1f1bff24118581335906f8b3d48"
+            SonectSDK.Config.Enviroment.DEV -> "818ea8360d2eec36c882cf670e2b47bc9886dded2b43309d89bff2bfc16efc92"
             SonectSDK.Config.Enviroment.STAGING -> "a5b9f0b330fec060c749eedb55bad520461a523f153444268311d210a88484cd"
             SonectSDK.Config.Enviroment.PRODUCTION -> ""
         }

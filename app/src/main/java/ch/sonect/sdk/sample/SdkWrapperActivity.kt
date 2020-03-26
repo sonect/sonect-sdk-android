@@ -59,7 +59,12 @@ class SdkWrapperActivity : AppCompatActivity() {
                     intent.getStringExtra(HMK)
                 )
             )
-            .addPaymentPlugin(MySilentPaymentPlugin())
+            .addPaymentPlugin(
+                MySilentPaymentPlugin(
+                    signature_start,
+                    intent.getStringExtra(HMK)
+                )
+            )
             .enviroment(intent.getSerializableExtra(ENV) as SonectSDK.Config.Enviroment)
             .userCredentials(
                 SonectSDK.Config.UserCredentials(
@@ -152,7 +157,8 @@ class SdkWrapperActivity : AppCompatActivity() {
                         signatureStart + ":" + data?.getStringExtra(CustomPaymentActivity.PID) + signatureEnd
 
                     _listener.onTransactionSuccess(
-                        Math.abs(data?.getStringExtra(CustomPaymentActivity.PID)!!.toInt()).toString(),
+                        Math.abs(data?.getStringExtra(CustomPaymentActivity.PID)!!.toInt())
+                            .toString(),
                         calculateSignature(sign)
                     )
                 } else {
@@ -200,7 +206,10 @@ class SdkWrapperActivity : AppCompatActivity() {
         }
     }
 
-    class MySilentPaymentPlugin : PaymentPlugin {
+    class MySilentPaymentPlugin(
+        val signatureStart: String,
+        val hmk: String
+    ) : PaymentPlugin {
 
         override fun init(paymentConfig: PaymentConfig?) {
             // ignore for now
@@ -213,11 +222,33 @@ class SdkWrapperActivity : AppCompatActivity() {
             immediateCapture: Boolean,
             listener: PaymentPlugin.ResultListener
         ) {
-            listener.onTransactionSuccess(Math.random().hashCode().toString())
+            val signatureEnd = ":$amount:$currency:CAPTURED"
+            val ref = Math.random().toString()
+            val sign = "$signatureStart:$ref$signatureEnd"
+
+            listener.onTransactionSuccess(ref, calculateSignature(sign))
+        }
+
+        //TODO those are for simulating signature
+        private fun calculateSignature(uid: String): String {
+            return Base64.encodeToString(createHmac(uid.toByteArray()), Base64.DEFAULT)
+                .trim()
+        }
+
+        fun createHmac(data: ByteArray): ByteArray {
+            val keySpec = SecretKeySpec(
+                hmk.toByteArray(),
+                "HmacSHA256"
+            )
+            val mac = Mac.getInstance("HmacSHA256")
+            mac.init(keySpec)
+
+            val hmac = mac.doFinal(data)
+            return hmac
         }
 
         override fun getPaymentMethod(): String {
-            return "BALANCE"
+            return "DIRECT_DEBIT"
         }
 
         override fun handleActivityResultForPayment(
@@ -234,7 +265,7 @@ class SdkWrapperActivity : AppCompatActivity() {
         }
 
         override fun getPaymentMethodId(): String {
-            return "**** 1892"
+            return ""
         }
 
         override fun getPaymentMethodIcon(): Int {
