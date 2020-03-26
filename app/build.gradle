@@ -70,7 +70,7 @@ buildscript {
 }
 
 dependencies {
-    implementation('com.github.sonect:android-user-sdk:1.2.15@aar') {
+    implementation('com.github.sonect:android-user-sdk:1.2.18@aar') {
         transitive = true
         exclude group: "idenfySdk"
         exclude group: "io.anyline"
