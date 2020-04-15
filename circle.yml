@@ -19,7 +19,7 @@ jobs:
       - save_cache:
           paths:
             - ~/.gradle
-          key: jars-{{ checksum "build.gradle" }}-{{ checksum  "app/bui ld.gradle" }}
+          key: jars-{{ checksum "build.gradle" }}-{{ checksum  "app/build.gradle" }}
       - run:
           name: Build and upload sample debug to firebase
           command: ./gradlew assembleExternalRelease -PversionCode=$CIRCLE_BUILD_NUM appDistributionUploadExternalRelease
