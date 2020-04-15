@@ -21,23 +21,8 @@ jobs:
             - ~/.gradle
           key: jars-{{ checksum "build.gradle" }}-{{ checksum  "app/bui ld.gradle" }}
       - run:
-          name: Run unit test for dev release
-          command: ./gradlew testReleaseUnitTest
-      - store_artifacts:
-          path: sdk/build/reports
-          destination: sdk/reports
-      - store_test_results:
-          path: sdk/build/test-results
-          destination: sdk/test-results
-      - store_artifacts:
-          path: sample/build/reports
-          destination: sample/reports
-      - store_test_results:
-          path: sample/build/test-results
-          destination: sample/test-results
-      - run:
           name: Build and upload sample debug to firebase
-          command: ./gradlew assembleRelease -PversionCode=$CIRCLE_BUILD_NUM appDistributionUploadRelease
+          command: ./gradlew assembleExternalRelease -PversionCode=$CIRCLE_BUILD_NUM appDistributionUploadExternalRelease
 workflows:
   version: 2
   build_app:
