@@ -27,6 +27,9 @@ android {
             sourceCompatibility JavaVersion.VERSION_1_8
             targetCompatibility JavaVersion.VERSION_1_8
         }
+
+        missingDimensionStrategy 'sdkDependency', 'external'
+        missingDimensionStrategy 'outerInner', 'internal'
     }
 
     signingConfigs {
@@ -58,6 +61,16 @@ android {
             signingConfig signingConfigs.customDebug
         }
     }
+
+    flavorDimensions("sdkDependency")
+    productFlavors {
+        internal {
+            dimension = "sdkDependency"
+        }
+        external {
+            dimension = "sdkDependency"
+        }
+    }
 }
 
 buildscript {
@@ -70,7 +83,10 @@ buildscript {
 }
 
 dependencies {
-    implementation('com.github.sonect:android-user-sdk:1.2.20@aar') {
+    // For Sonect internal usage and direct dependency to source code
+//    internalImplementation project(path: ':sdk')
+
+    externalImplementation('com.github.sonect:android-user-sdk:1.2.20@aar') {
         transitive = true
         exclude group: "idenfySdk"
         exclude group: "io.anyline"
