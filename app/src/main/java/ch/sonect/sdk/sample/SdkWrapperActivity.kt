@@ -195,10 +195,6 @@ class SdkWrapperActivity : AppCompatActivity() {
             return "Overlayed PM_TILE name"
         }
 
-        override fun getPaymentMethodId(): String {
-            return ""
-        }
-
         override fun getBalance(): Float? = 178f
 
         override fun getPaymentMethodIcon(): Int {
@@ -262,10 +258,6 @@ class SdkWrapperActivity : AppCompatActivity() {
 
         override fun getPaymentMethodName(): String {
             return "Silent PM_TILE name"
-        }
-
-        override fun getPaymentMethodId(): String {
-            return ""
         }
 
         override fun getPaymentMethodIcon(): Int {
