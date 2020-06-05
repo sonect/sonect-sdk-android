@@ -144,10 +144,6 @@ class MyOverlayScreenPaymentPlugin : PaymentPlugin {
        return "Overlayed PM_TILE name"
    }
 
-   override fun getPaymentMethodId(): String {
-       return "**** 1249"
-   }
-
    override fun getBalance(): Float? = 178f
 
    override fun getPaymentMethodIcon(): Int {
@@ -157,6 +153,9 @@ class MyOverlayScreenPaymentPlugin : PaymentPlugin {
 }
 
 ```
+
+If you use Java, other methods that is not defined above should return empty values (null or empty).
+In Kotlin they have default implementation.
 
 In `startPayment` call SDK provides `PaymentPlugin.ResultListener` which should be called from partner’s app when transaction is finished.
 
