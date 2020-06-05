@@ -96,23 +96,23 @@ class MainActivity : AppCompatActivity() {
 
     fun getDefaultClientId(): String {
         return when (getSelectedEnviroment()) {
-            SonectSDK.Config.Enviroment.DEV -> "6b245690-5c64-11ea-8a84-1727a27b32a7"
-            SonectSDK.Config.Enviroment.STAGING -> "f6f045f0-5c67-11ea-a6cf-2f39fea80425"
+            SonectSDK.Config.Enviroment.DEV -> "5c323120-5027-11e8-ad3f-7be7c251fc61"
+            SonectSDK.Config.Enviroment.STAGING -> "8467e820-93fa-11e9-bdb7-3f7b70c4b6fe"
             SonectSDK.Config.Enviroment.PRODUCTION -> ""
         }
     }
 
     fun getDefaultClientSecret(): String {
         return when (getSelectedEnviroment()) {
-            SonectSDK.Config.Enviroment.DEV -> "99340a11f386333689e356ab866fa97f44b54cf4ceb542a24f27764b328e4cda"
-            SonectSDK.Config.Enviroment.STAGING -> "1108f1126cc7977190627d95546d86784a9a2b6b7e7f0f20552c7fc1777e7a50"
+            SonectSDK.Config.Enviroment.DEV -> "b64407b409abbc4269771cbd1f7c28dbd498270defff3a606f5f4f2d27a4e07a"
+            SonectSDK.Config.Enviroment.STAGING -> "8e049130b6533747ddd8bd3613c49aee51de14c925cfcdc49e0e64c0bda2dba6"
             SonectSDK.Config.Enviroment.PRODUCTION -> ""
         }
     }
 
     fun getDefaultUserId(): String {
         return when (getSelectedEnviroment()) {
-            SonectSDK.Config.Enviroment.DEV -> "CTLoZ7Gx1Tw2XamJLiD9TNtnaj1ogL"
+            SonectSDK.Config.Enviroment.DEV -> "5db00a3ff58170006eb331c4"
             SonectSDK.Config.Enviroment.STAGING -> "5d52879f41961500109b76f6"
             SonectSDK.Config.Enviroment.PRODUCTION -> ""
         }
@@ -120,8 +120,8 @@ class MainActivity : AppCompatActivity() {
 
     fun getDefaulltHmackKey(): String {
         return when (getSelectedEnviroment()) {
-            SonectSDK.Config.Enviroment.DEV -> "818ea8360d2eec36c882cf670e2b47bc9886dded2b43309d89bff2bfc16efc92"
-            SonectSDK.Config.Enviroment.STAGING -> "a5b9f0b330fec060c749eedb55bad520461a523f153444268311d210a88484cd"
+            SonectSDK.Config.Enviroment.DEV -> "0a4f1c697751b6a3fbf533eeb81752426928acfe202bdd256a76d1a205907d70"
+            SonectSDK.Config.Enviroment.STAGING -> "1e2536aa1a371e517bef5d46afdfd6b28b79e9a674c5023280382616032d0b98"
             SonectSDK.Config.Enviroment.PRODUCTION -> ""
         }
     }

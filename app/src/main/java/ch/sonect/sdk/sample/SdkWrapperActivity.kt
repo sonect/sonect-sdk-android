@@ -124,6 +124,7 @@ class SdkWrapperActivity : AppCompatActivity() {
         private lateinit var _listener: PaymentPlugin.ResultListener
 
         lateinit var signatureEnd: String
+        lateinit var date: String
 
         override fun init(paymentConfig: PaymentConfig?) {
             // ignore for now
@@ -136,8 +137,8 @@ class SdkWrapperActivity : AppCompatActivity() {
             immediateCapture: Boolean,
             listener: PaymentPlugin.ResultListener
         ) {
-
-            signatureEnd = ":$amount:$currency:CAPTURED"
+            date = System.currentTimeMillis().toString()
+            signatureEnd = ":$amount:$currency:$date"
             _listener = listener
             val paymentIntent = Intent(currentActivityContext, CustomPaymentActivity::class.java)
             currentActivityContext.startActivityForResult(
@@ -159,7 +160,7 @@ class SdkWrapperActivity : AppCompatActivity() {
                     _listener.onTransactionSuccess(
                         Math.abs(data?.getStringExtra(CustomPaymentActivity.PID)!!.toInt())
                             .toString(),
-                        calculateSignature(sign)
+                        calculateSignature(sign), date
                     )
                 } else {
                     _listener.onTransactionError("My fault, sorry")
@@ -218,11 +219,12 @@ class SdkWrapperActivity : AppCompatActivity() {
             immediateCapture: Boolean,
             listener: PaymentPlugin.ResultListener
         ) {
-            val signatureEnd = ":$amount:$currency:CAPTURED"
+            val date = System.currentTimeMillis().toString()
+            val signatureEnd = ":$amount:$currency:$date"
             val ref = Math.random().toString()
             val sign = "$signatureStart:$ref$signatureEnd"
 
-            listener.onTransactionSuccess(ref, calculateSignature(sign))
+            listener.onTransactionSuccess(ref, calculateSignature(sign), date)
         }
 
         //TODO those are for simulating signature
