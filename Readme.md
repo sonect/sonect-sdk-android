@@ -131,7 +131,7 @@ class MyOverlayScreenPaymentPlugin : PaymentPlugin {
    override fun handleActivityResultForPayment(requestCode: Int, resultCode: Int, data: Intent?): Boolean {
        if (requestCode == CustomPaymentActivity.REQUEST_CODE) {
            if (resultCode == Activity.RESULT_OK) {
-               _listener.onTransactionSuccess(data?.getStringExtra(CustomPaymentActivity.PID), “CALCULATED_SIGNATURE”)
+               _listener.onTransactionSuccess(data?.getStringExtra(CustomPaymentActivity.PID), “CALCULATED_SIGNATURE”, "TRANSACTION_DATE")
            } else {
                _listener.onTransactionError("My fault, sorry")
            }
