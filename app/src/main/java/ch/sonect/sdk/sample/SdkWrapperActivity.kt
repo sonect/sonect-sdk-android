@@ -23,12 +23,16 @@ class SdkWrapperActivity : AppCompatActivity() {
         const val TSDK = "toksdk"
         const val SIGN = "signature"
         const val CID = "clientId"
+        const val SPM = "silentPM"
+        const val OPM = "overlaidPM"
         internal const val ENV = "enviroment"
 
         fun start(
             activity: Activity, lightMode: Boolean, userId: String,
             tokenSDK: String, signature: String,
             environment: SonectSDK.Config.Enviroment,
+            includeSilentPaymentPlugin: Boolean,
+            includeOverlaidPaymentPlugin: Boolean,
             clientId: String,
             hmackKey: String
         ) {
@@ -40,6 +44,8 @@ class SdkWrapperActivity : AppCompatActivity() {
             newActivity.putExtra(ENV, environment)
             newActivity.putExtra(CID, clientId)
             newActivity.putExtra(HMK, hmackKey)
+            newActivity.putExtra(SPM, includeSilentPaymentPlugin)
+            newActivity.putExtra(OPM, includeOverlaidPaymentPlugin)
             activity.startActivity(newActivity)
         }
     }
@@ -53,18 +59,6 @@ class SdkWrapperActivity : AppCompatActivity() {
 
         val builder: SonectSDK.Config.Builder = SonectSDK.Config.Builder()
         val configBuilder = builder
-            .addPaymentPlugin(
-                MyOverlayScreenPaymentPlugin(
-                    signature_start,
-                    intent.getStringExtra(HMK)
-                )
-            )
-            .addPaymentPlugin(
-                MySilentPaymentPlugin(
-                    signature_start,
-                    intent.getStringExtra(HMK)
-                )
-            )
             .enviroment(intent.getSerializableExtra(ENV) as SonectSDK.Config.Enviroment)
             .userCredentials(
                 SonectSDK.Config.UserCredentials(
@@ -77,6 +71,25 @@ class SdkWrapperActivity : AppCompatActivity() {
                     finish()
                 }
             })
+
+        if (intent.getBooleanExtra(SPM, false)) {
+            builder.addPaymentPlugin(
+                MySilentPaymentPlugin(
+                    signature_start,
+                    intent.getStringExtra(HMK)
+                )
+            )
+        }
+
+        if (intent.getBooleanExtra(OPM, false)) {
+            builder.addPaymentPlugin(
+                MyOverlayScreenPaymentPlugin(
+                    signature_start,
+                    intent.getStringExtra(HMK)
+                )
+            )
+        }
+
         if (intent.getBooleanExtra(LM, false)) {
             configBuilder.setLightTheme()
         }

@@ -97,6 +97,40 @@
             android:text="Light" />
     </RadioGroup>
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start"
+        android:text="Payment methods" />
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/chkSilentPm"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:checked="true"
+            android:text="Silent PM" />
+
+        <RadioButton
+            android:id="@+id/chkOverlayPm"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Overlaid PM" />
+
+        <RadioButton
+            android:id="@+id/chkBothPm"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="All PMs" />
+    </RadioGroup>
+
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnStartSdkFragment"
         android:layout_width="match_parent"

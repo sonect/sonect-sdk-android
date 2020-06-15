@@ -30,7 +30,16 @@ class MainActivity : AppCompatActivity() {
             clientSecret = etClientSecret.text.toString()
             hmackKey = etHmackKey.text.toString()
             SdkWrapperActivity.start(
-                this, chkLight.isChecked, userId, getTokenSDK(), calculateSignature(userId), getSelectedEnviroment(), clientId, hmackKey
+                this,
+                chkLight.isChecked,
+                userId,
+                getTokenSDK(),
+                calculateSignature(userId),
+                getSelectedEnviroment(),
+                chkSilentPm.isChecked || chkBothPm.isChecked,
+                chkOverlayPm.isChecked || chkBothPm.isChecked,
+                clientId,
+                hmackKey
             )
         }
 
