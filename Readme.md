@@ -85,6 +85,14 @@ val sonectSDK = SonectSDK(
    builder
        .addPaymentPlugin(MyOverlayScreenPaymentPlugin())
        .userCredentials(SonectSDK.Config.UserCredentials(userId, tokenSDK, signature))
+       .userConfig(
+           SonectSDK.Config.UserConfig(
+               SonectSDK.Config.UserConfig.Type.EMPLOYEE,
+               100,
+               200,
+               10
+           )
+       )
        .sdkCallbacks(object : SdkActionsCallback {
            override fun onSdkLastFragmentClosed() {
                finish()
@@ -161,6 +169,22 @@ In `startPayment` call SDK provides `PaymentPlugin.ResultListener` which should 
 
 Note that partner integration must also have server-server communication in order to provide info for transaction and validate transaction by provided reference ID.
 If reference is not available, other details need to be provided. See [here](https://docs.google.com/document/d/1jDOqkFZrjj9v5gF5-U-Hss-XPMFPpmjpIAy4BSkTRfY/edit#heading=h.6s2dsca7es7b).
+
+#### User config
+
+| Param            | Type            | Description              |
+| ---------------- | --------------- | ------------------------ |
+| type             | UserConfig.Type | User's type              |
+| dailyLimit       | Int             | User's daily limit       |
+| monthlyLimit     | Int             | User's monthly limit     |
+| transactionLimit | Int             | User's transaction limit |
+
+**UserConfig.Type**
+
+| Value                    | Description |
+| ------------------------ | ----------- |
+| UserConfig.Type.EMPLOYEE |             |
+| UserConfig.Type.CUSTOMER |             |
 
 #### SDK callbacks
 
