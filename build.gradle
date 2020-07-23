@@ -19,6 +19,8 @@ allprojects {
         mavenCentral()
         jcenter()
         maven { url 'https://www.jitpack.io' }
+        maven { url 'https://anylinesdk.blob.core.windows.net/maven/' }
+        maven { url "https://dl.bintray.com/idenfy/idenfy" }
     }
 }
 
