@@ -54,7 +54,7 @@ class SdkWrapperActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_wrapper)
 
-        val signature_start =
+        val signature_start =Ac
             intent.getStringExtra(CID) + ":" + packageName + ":" + intent.getStringExtra(UID)
 
         val builder: SonectSDK.Config.Builder = SonectSDK.Config.Builder()
@@ -129,7 +129,7 @@ class SdkWrapperActivity : AppCompatActivity() {
         }
     }
 
-    class MyOverlayScreenPaymentPlugin(
+    inner class MyOverlayScreenPaymentPlugin(
         val signatureStart: String,
         val hmk: String
     ) : PaymentPlugin {
@@ -144,7 +144,6 @@ class SdkWrapperActivity : AppCompatActivity() {
         }
 
         override fun startPayment(
-            currentActivityContext: Activity,
             amount: Int,
             currency: String,
             immediateCapture: Boolean,
@@ -153,8 +152,8 @@ class SdkWrapperActivity : AppCompatActivity() {
             date = System.currentTimeMillis().toString()
             signatureEnd = ":$amount:$currency:$date"
             _listener = listener
-            val paymentIntent = Intent(currentActivityContext, CustomPaymentActivity::class.java)
-            currentActivityContext.startActivityForResult(
+            val paymentIntent = Intent(this@SdkWrapperActivity, CustomPaymentActivity::class.java)
+            this@SdkWrapperActivity.startActivityForResult(
                 paymentIntent,
                 CustomPaymentActivity.REQUEST_CODE
             )
@@ -226,7 +225,6 @@ class SdkWrapperActivity : AppCompatActivity() {
         }
 
         override fun startPayment(
-            currentActivityContext: Activity,
             amount: Int,
             currency: String,
             immediateCapture: Boolean,
@@ -277,6 +275,30 @@ class SdkWrapperActivity : AppCompatActivity() {
 
         override fun getPaymentMethodIcon(): Int {
             return R.mipmap.ic_launcher_beta
+        }
+
+        override fun getAccountDescription(): String? {
+            return "The awesome payment method!"
+        }
+
+        override fun getTextColor(): Int {
+            return R.color.sonectRedViolet
+        }
+
+        override fun getBackgroundGradient(): Pair<Int, Int> {
+            return Pair(R.color.sonectSoftBlue, R.color.sonectOrangeYellow)
+        }
+
+        override fun getCurrency(): String? {
+            return "ZKF"
+        }
+
+        override fun getAccountNumber(): String? {
+            return "1234 5643"
+        }
+
+        override fun getBalance(): Float? {
+            return 25f
         }
     }
 }

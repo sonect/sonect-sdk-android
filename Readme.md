@@ -118,48 +118,71 @@ Payment plugin is required for a partner who wants to handle the payment process
 ```kotlin
 class MyOverlayScreenPaymentPlugin : PaymentPlugin {
 
-   private lateinit var _listener: PaymentPlugin.ResultListener
+    private lateinit var _listener: PaymentPlugin.ResultListener
 
-   override fun init(paymentConfig: PaymentConfig?) {
-       // ignore for now
-   }
+    override fun init(paymentConfig: PaymentConfig?) {
+      // ignore for now
+    }
 
-   override fun startPayment(
-       currentActivityContext: Activity,
-       amount: Int,
-       immediateCapture: Boolean,
-       listener: PaymentPlugin.ResultListener
-   ) {
-       _listener = listener
-       val paymentIntent = Intent(currentActivityContext, CustomPaymentActivity::class.java)
-       currentActivityContext.startActivityForResult(paymentIntent, CustomPaymentActivity.REQUEST_CODE)
-   }
+    override fun startPayment(
+      amount: Int,
+      immediateCapture: Boolean,
+      listener: PaymentPlugin.ResultListener
+    ) {
+      _listener = listener
+      val paymentIntent = Intent(this@MyActivity, CustomPaymentActivity::class.java)
+      this@MyActivity.startActivityForResult(paymentIntent, CustomPaymentActivity.REQUEST_CODE)
+    }
 
-   override fun handleActivityResultForPayment(requestCode: Int, resultCode: Int, data: Intent?): Boolean {
-       if (requestCode == CustomPaymentActivity.REQUEST_CODE) {
-           if (resultCode == Activity.RESULT_OK) {
-               _listener.onTransactionSuccess(data?.getStringExtra(CustomPaymentActivity.PID), “CALCULATED_SIGNATURE”, "TRANSACTION_DATE")
-           } else {
-               _listener.onTransactionError("My fault, sorry")
-           }
-           return true
-       }
-       return false
-   }
+    override fun handleActivityResultForPayment(requestCode: Int, resultCode: Int, data: Intent?): Boolean {
+      if (requestCode == CustomPaymentActivity.REQUEST_CODE) {
+        if (resultCode == Activity.RESULT_OK) {
+          _listener.onTransactionSuccess(data?.getStringExtra(CustomPaymentActivity.PID), “CALCULATED_SIGNATURE”, "TRANSACTION_DATE")
+        } else {
+          _listener.onTransactionError("My fault, sorry")
+        }
+        return true
+      }
+      return false
+    }
 
-   override fun getPaymentMethodName(): String {
-       return "Overlayed PM_TILE name"
-   }
+    override fun getPaymentMethodName(): String {
+      return "Overlayed PM_TILE name"
+    }
 
-   override fun getBalance(): Float? = 178f
+    override fun getPaymentMethodIcon(): Int {
+      return R.mipmap.ic_launcher
+    }
+  
+    override fun getAccountDescription(): String? {
+      return "The awesome payment method!"
+    }
 
-   override fun getPaymentMethodIcon(): Int {
-       return R.mipmap.ic_launcher
-   }
+    override fun getTextColor(): Int {
+      return R.color.sonectRedViolet
+    }
+
+    override fun getBackgroundGradient(): Pair<Int, Int> {
+      return Pair(R.color.sonectSoftBlue, R.color.sonectOrangeYellow)
+    }
+
+    override fun getCurrency(): String? {
+      return "ZKF"
+    }
+
+    override fun getAccountNumber(): String? {
+      return "1234 5643"
+    }
+
+    override fun getBalance(): Float? {
+      return 25f
+    }
 
 }
 
 ```
+
+![Sonect colors](https://api.monosnap.com/file/download?id=kXOe8FE6OuL9OzWFNFCpvZKXWIuUMk)
 
 If you use Java, other methods that is not defined above should return empty values (null or empty).
 In Kotlin they have default implementation.
