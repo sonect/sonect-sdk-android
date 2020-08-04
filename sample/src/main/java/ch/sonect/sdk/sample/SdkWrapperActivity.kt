@@ -54,7 +54,7 @@ class SdkWrapperActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_wrapper)
 
-        val signature_start =Ac
+        val signature_start =
             intent.getStringExtra(CID) + ":" + packageName + ":" + intent.getStringExtra(UID)
 
         val builder: SonectSDK.Config.Builder = SonectSDK.Config.Builder()
