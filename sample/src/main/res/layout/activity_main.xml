@@ -1,160 +1,243 @@
 <?xml version="1.0" encoding="utf-8"?><!--
   ~ Copyright (c) 2019. All code present in this project belong to Sonect. All copy and distribution are forbidden. All rights reserved.
   -->
-
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_margin="32dp"
-    android:gravity="center"
-    android:orientation="vertical"
-    tools:context=".MainActivity">
+    android:layout_height="match_parent">
 
-    <androidx.appcompat.widget.AppCompatEditText
-        android:id="@+id/etUserId"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="User id" />
+        android:layout_height="match_parent"
+        android:layout_margin="32dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        tools:context=".MainActivity">
 
-    <androidx.appcompat.widget.AppCompatEditText
-        android:id="@+id/etClientId"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Client id" />
-
-    <androidx.appcompat.widget.AppCompatEditText
-        android:id="@+id/etClientSecret"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Client secret" />
-
-    <androidx.appcompat.widget.AppCompatEditText
-        android:id="@+id/etHmackKey"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Hmack key" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="start"
-        android:text="Enviroment" />
-
-    <RadioGroup
-        android:id="@+id/groupEnviroment"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <RadioButton
-            android:id="@+id/chkDev"
-            android:layout_width="0dp"
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/etUserId"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:checked="true"
-            android:text="Dev" />
+            android:hint="User id" />
 
-        <RadioButton
-            android:id="@+id/chkTest"
-            android:layout_width="0dp"
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/etClientId"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="2"
-            android:text="Staging/Test" />
+            android:hint="Client id" />
 
-        <RadioButton
-            android:id="@+id/chkProd"
-            android:layout_width="0dp"
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/etClientSecret"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Prod" />
-    </RadioGroup>
+            android:hint="Client secret" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="start"
-        android:text="Theme Scheme" />
-
-    <RadioGroup
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <RadioButton
-            android:id="@+id/chkDark"
-            android:layout_width="0dp"
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/etHmackKey"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:checked="true"
-            android:text="Dark" />
+            android:hint="Hmack key" />
 
-        <RadioButton
-            android:id="@+id/chkLight"
-            android:layout_width="0dp"
+        <TextView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Light" />
-    </RadioGroup>
+            android:layout_gravity="start"
+            android:text="Enviroment" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="start"
-        android:text="Payment methods" />
-
-    <RadioGroup
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <RadioButton
-            android:id="@+id/chkSilentPm"
-            android:layout_width="0dp"
+        <RadioGroup
+            android:id="@+id/groupEnviroment"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:checked="true"
-            android:text="Silent PM" />
+            android:orientation="horizontal">
 
-        <RadioButton
-            android:id="@+id/chkOverlayPm"
-            android:layout_width="0dp"
+            <RadioButton
+                android:id="@+id/chkDev"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:checked="true"
+                android:text="Dev" />
+
+            <RadioButton
+                android:id="@+id/chkTest"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:text="Staging/Test" />
+
+            <RadioButton
+                android:id="@+id/chkProd"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Prod" />
+        </RadioGroup>
+
+        <TextView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Overlaid PM" />
+            android:layout_gravity="start"
+            android:text="Theme Scheme" />
 
-        <RadioButton
-            android:id="@+id/chkBothPm"
-            android:layout_width="0dp"
+        <RadioGroup
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="All PMs" />
-    </RadioGroup>
+            android:orientation="horizontal">
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btnStartSdkFragment"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:padding="16dp"
-        android:text="Start SDK by Fragment" />
+            <RadioButton
+                android:id="@+id/chkDark"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:checked="true"
+                android:text="Dark" />
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btnStartSdkActivity"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:enabled="false"
-        android:padding="16dp"
-        android:text="Start SDK by Activity" />
+            <RadioButton
+                android:id="@+id/chkLight"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Light" />
+        </RadioGroup>
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btnResumeSdkWithReceipt"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:enabled="false"
-        android:padding="16dp"
-        android:text="Resume SDK" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:text="Payment methods" />
 
-</LinearLayout>
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/chkSilentPm"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:checked="true"
+                android:text="Silent PM" />
+
+            <RadioButton
+                android:id="@+id/chkOverlayPm"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Overlaid PM" />
+
+            <RadioButton
+                android:id="@+id/chkBothPm"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="All PMs" />
+        </RadioGroup>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:text="Type" />
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/customerRB"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:checked="true"
+                android:text="Customer" />
+
+            <RadioButton
+                android:id="@+id/employeeRB"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Employee" />
+        </RadioGroup>
+
+        <CheckBox
+            android:id="@+id/trialCB"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:text="Trial" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:text="Limits" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/dailyLimitET"
+            android:inputType="number"
+            android:hint="Daily limit" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/weeklyLimitET"
+            android:inputType="number"
+            android:hint="Weekly limit" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/monthlyLimitET"
+            android:inputType="number"
+            android:hint="Monthly limit" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/yearlyLimitET"
+            android:inputType="number"
+            android:hint="Yearly limit" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:inputType="number"
+            android:id="@+id/transactionLimitET"
+            android:hint="Transaction limit" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnStartSdkFragment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:padding="16dp"
+            android:text="Start SDK by Fragment" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnStartSdkActivity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:enabled="false"
+            android:padding="16dp"
+            android:text="Start SDK by Activity" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnResumeSdkWithReceipt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:enabled="false"
+            android:padding="16dp"
+            android:text="Resume SDK" />
+
+    </LinearLayout>
+
+</ScrollView>

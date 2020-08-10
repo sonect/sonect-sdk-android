@@ -11,6 +11,9 @@ import ch.sonect.sdk.SonectSDK
 import ch.sonect.sdk.paymentPlugins.PaymentConfig
 import ch.sonect.sdk.paymentPlugins.PaymentPlugin
 import ch.sonect.sdk.profile.screen.SdkActionsCallback
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
+import java.lang.reflect.Type
 import javax.crypto.Mac
 import javax.crypto.spec.SecretKeySpec
 
@@ -25,6 +28,10 @@ class SdkWrapperActivity : AppCompatActivity() {
         const val CID = "clientId"
         const val SPM = "silentPM"
         const val OPM = "overlaidPM"
+        const val UT = "type"
+        const val TRIAL = "trial"
+        const val FIELDS = "fields"
+        const val LT = "limits"
         internal const val ENV = "enviroment"
 
         fun start(
@@ -34,7 +41,11 @@ class SdkWrapperActivity : AppCompatActivity() {
             includeSilentPaymentPlugin: Boolean,
             includeOverlaidPaymentPlugin: Boolean,
             clientId: String,
-            hmackKey: String
+            hmackKey: String,
+            userType: SonectSDK.Config.UserConfig.Type = SonectSDK.Config.UserConfig.Type.CUSTOMER,
+            isTrial: Boolean = false,
+            signatureFields: LinkedHashMap<String, Any?> = linkedMapOf(),
+            limits: String? = null
         ) {
             val newActivity = Intent(activity, SdkWrapperActivity::class.java)
             newActivity.putExtra(LM, lightMode)
@@ -46,6 +57,10 @@ class SdkWrapperActivity : AppCompatActivity() {
             newActivity.putExtra(HMK, hmackKey)
             newActivity.putExtra(SPM, includeSilentPaymentPlugin)
             newActivity.putExtra(OPM, includeOverlaidPaymentPlugin)
+            newActivity.putExtra(UT, userType)
+            newActivity.putExtra(TRIAL, isTrial)
+            newActivity.putExtra(FIELDS, signatureFields)
+            newActivity.putExtra(LT, limits)
             activity.startActivity(newActivity)
         }
     }
@@ -58,6 +73,23 @@ class SdkWrapperActivity : AppCompatActivity() {
             intent.getStringExtra(CID) + ":" + packageName + ":" + intent.getStringExtra(UID)
 
         val builder: SonectSDK.Config.Builder = SonectSDK.Config.Builder()
+
+        val str = intent.getStringExtra(LT)
+        val gson = Gson()
+        val entityType: Type =
+            object : TypeToken<LinkedHashMap<String, Int?>>() {}.type
+        val linkedHashMap: LinkedHashMap<String,Int?> = gson.fromJson(str, entityType)
+
+        val userConfig = SonectSDK.Config.UserConfig(
+            dailyLimit = linkedHashMap["daily"],
+            weeklyLimit = linkedHashMap["weekly"],
+            monthlyLimit = linkedHashMap["monthly"],
+            yearlyLimit = linkedHashMap["yearly"],
+            transactionLimit = linkedHashMap["transaction"],
+            type = intent.getSerializableExtra(UT) as SonectSDK.Config.UserConfig.Type,
+            isTrial = intent.getBooleanExtra(TRIAL, false)
+        )
+
         val configBuilder = builder
             .enviroment(intent.getSerializableExtra(ENV) as SonectSDK.Config.Enviroment)
             .userCredentials(
@@ -66,6 +98,7 @@ class SdkWrapperActivity : AppCompatActivity() {
                     intent.getStringExtra(TSDK), intent.getStringExtra(SIGN)
                 )
             )
+            .userConfiguration(userConfig)
             .sdkCallbacks(object : SdkActionsCallback {
                 override fun onSdkLastFragmentClosed() {
                     finish()
