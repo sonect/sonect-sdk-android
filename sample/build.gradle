@@ -92,7 +92,7 @@ dependencies {
     internalImplementation project(path: ':sdk-data')
     internalImplementation project(path: ':sdk-domain')
 
-    externalImplementation("com.github.sonect:android-user-sdk:$sonectSdkVersion") {
+    externalApi("com.github.sonect:android-user-sdk:$sonectSdkVersion") {
         exclude group: "idenfySdk"
         exclude group: "io.anyline"
     }
