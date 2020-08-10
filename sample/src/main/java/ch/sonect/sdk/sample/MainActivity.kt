@@ -7,6 +7,7 @@ import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import ch.sonect.sdk.SDKEntryPointActivity
 import ch.sonect.sdk.SonectSDK
+import com.google.gson.Gson
 import kotlinx.android.synthetic.main.activity_main.*
 import javax.crypto.Mac
 import javax.crypto.spec.SecretKeySpec
@@ -29,6 +30,15 @@ class MainActivity : AppCompatActivity() {
             clientId = etClientId.text.toString()
             clientSecret = etClientSecret.text.toString()
             hmackKey = etHmackKey.text.toString()
+
+            val limits = linkedMapOf<String, Int?>(
+                "daily" to dailyLimitET.text.toString().toIntOrNull(),
+                "weekly" to weeklyLimitET.text.toString().toIntOrNull(),
+                "monthly" to monthlyLimitET.text.toString().toIntOrNull(),
+                "yearly" to yearlyLimitET.text.toString().toIntOrNull(),
+                "transaction" to transactionLimitET.text.toString().toIntOrNull()
+            )
+
             SdkWrapperActivity.start(
                 this,
                 chkLight.isChecked,
@@ -39,7 +49,10 @@ class MainActivity : AppCompatActivity() {
                 chkSilentPm.isChecked || chkBothPm.isChecked,
                 chkOverlayPm.isChecked || chkBothPm.isChecked,
                 clientId,
-                hmackKey
+                hmackKey,
+                userType = if (customerRB.isChecked) SonectSDK.Config.UserConfig.Type.CUSTOMER else SonectSDK.Config.UserConfig.Type.EMPLOYEE,
+                isTrial = trialCB.isChecked,
+                limits = Gson().toJson(limits)
             )
         }
 
@@ -105,7 +118,7 @@ class MainActivity : AppCompatActivity() {
 
     fun getDefaultClientId(): String {
         return when (getSelectedEnviroment()) {
-            SonectSDK.Config.Enviroment.DEV -> "5c323120-5027-11e8-ad3f-7be7c251fc61"
+            SonectSDK.Config.Enviroment.DEV -> "40bd1c70-7988-11ea-831a-9be9ab365269"
             SonectSDK.Config.Enviroment.STAGING -> "8467e820-93fa-11e9-bdb7-3f7b70c4b6fe"
             SonectSDK.Config.Enviroment.PRODUCTION -> ""
         }
@@ -113,7 +126,7 @@ class MainActivity : AppCompatActivity() {
 
     fun getDefaultClientSecret(): String {
         return when (getSelectedEnviroment()) {
-            SonectSDK.Config.Enviroment.DEV -> "b64407b409abbc4269771cbd1f7c28dbd498270defff3a606f5f4f2d27a4e07a"
+            SonectSDK.Config.Enviroment.DEV -> "fae024ad2a9d4d024f517ef98910721b3a4af9c6ff98cc57ae9c3fa21c3171c6"
             SonectSDK.Config.Enviroment.STAGING -> "8e049130b6533747ddd8bd3613c49aee51de14c925cfcdc49e0e64c0bda2dba6"
             SonectSDK.Config.Enviroment.PRODUCTION -> ""
         }
@@ -121,7 +134,7 @@ class MainActivity : AppCompatActivity() {
 
     fun getDefaultUserId(): String {
         return when (getSelectedEnviroment()) {
-            SonectSDK.Config.Enviroment.DEV -> "5db00a3ff58170006eb331c4"
+            SonectSDK.Config.Enviroment.DEV -> "5ed90b13f952051a08a65e73"
             SonectSDK.Config.Enviroment.STAGING -> "5d52879f41961500109b76f6"
             SonectSDK.Config.Enviroment.PRODUCTION -> ""
         }
@@ -129,7 +142,7 @@ class MainActivity : AppCompatActivity() {
 
     fun getDefaulltHmackKey(): String {
         return when (getSelectedEnviroment()) {
-            SonectSDK.Config.Enviroment.DEV -> "0a4f1c697751b6a3fbf533eeb81752426928acfe202bdd256a76d1a205907d70"
+            SonectSDK.Config.Enviroment.DEV -> "ca1f3441b76fabdd539da659f90c31134bb4f5e41b9c41772b093aa8b3d71a20"
             SonectSDK.Config.Enviroment.STAGING -> "1e2536aa1a371e517bef5d46afdfd6b28b79e9a674c5023280382616032d0b98"
             SonectSDK.Config.Enviroment.PRODUCTION -> ""
         }
