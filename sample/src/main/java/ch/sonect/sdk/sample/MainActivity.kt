@@ -39,6 +39,12 @@ class MainActivity : AppCompatActivity() {
                 "transaction" to transactionLimitET.text.toString().toIntOrNull()
             )
 
+            val userType = when {
+                customerRB.isChecked -> SonectSDK.Config.UserConfig.Type.CUSTOMER
+                employeeRB.isChecked -> SonectSDK.Config.UserConfig.Type.EMPLOYEE
+                else ->  null
+            }
+
             SdkWrapperActivity.start(
                 this,
                 chkLight.isChecked,
@@ -50,7 +56,7 @@ class MainActivity : AppCompatActivity() {
                 chkOverlayPm.isChecked || chkBothPm.isChecked,
                 clientId,
                 hmackKey,
-                userType = if (customerRB.isChecked) SonectSDK.Config.UserConfig.Type.CUSTOMER else SonectSDK.Config.UserConfig.Type.EMPLOYEE,
+                userType = userType,
                 isTrial = trialCB.isChecked,
                 limits = Gson().toJson(limits)
             )
@@ -119,7 +125,7 @@ class MainActivity : AppCompatActivity() {
     fun getDefaultClientId(): String {
         return when (getSelectedEnviroment()) {
             SonectSDK.Config.Enviroment.DEV -> "40bd1c70-7988-11ea-831a-9be9ab365269"
-            SonectSDK.Config.Enviroment.STAGING -> "8467e820-93fa-11e9-bdb7-3f7b70c4b6fe"
+            SonectSDK.Config.Enviroment.STAGING -> "cceff710-79a3-11ea-92ad-652ad420aac6"
             SonectSDK.Config.Enviroment.PRODUCTION -> ""
         }
     }
@@ -127,7 +133,7 @@ class MainActivity : AppCompatActivity() {
     fun getDefaultClientSecret(): String {
         return when (getSelectedEnviroment()) {
             SonectSDK.Config.Enviroment.DEV -> "fae024ad2a9d4d024f517ef98910721b3a4af9c6ff98cc57ae9c3fa21c3171c6"
-            SonectSDK.Config.Enviroment.STAGING -> "8e049130b6533747ddd8bd3613c49aee51de14c925cfcdc49e0e64c0bda2dba6"
+            SonectSDK.Config.Enviroment.STAGING -> "447617077c073f8495c196ddcbbd92bd547e90249f172f9432cd18eb2ebe6a71"
             SonectSDK.Config.Enviroment.PRODUCTION -> ""
         }
     }
@@ -135,7 +141,7 @@ class MainActivity : AppCompatActivity() {
     fun getDefaultUserId(): String {
         return when (getSelectedEnviroment()) {
             SonectSDK.Config.Enviroment.DEV -> "5ed90b13f952051a08a65e73"
-            SonectSDK.Config.Enviroment.STAGING -> "5d52879f41961500109b76f6"
+            SonectSDK.Config.Enviroment.STAGING -> "4100801"
             SonectSDK.Config.Enviroment.PRODUCTION -> ""
         }
     }
@@ -143,7 +149,7 @@ class MainActivity : AppCompatActivity() {
     fun getDefaulltHmackKey(): String {
         return when (getSelectedEnviroment()) {
             SonectSDK.Config.Enviroment.DEV -> "ca1f3441b76fabdd539da659f90c31134bb4f5e41b9c41772b093aa8b3d71a20"
-            SonectSDK.Config.Enviroment.STAGING -> "1e2536aa1a371e517bef5d46afdfd6b28b79e9a674c5023280382616032d0b98"
+            SonectSDK.Config.Enviroment.STAGING -> "a2469d2222d54c5cc51930220882e12eaea3c015206e3abf774a13799371b81d"
             SonectSDK.Config.Enviroment.PRODUCTION -> ""
         }
     }

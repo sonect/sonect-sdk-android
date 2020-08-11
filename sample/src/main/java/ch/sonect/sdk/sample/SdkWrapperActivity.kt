@@ -42,7 +42,7 @@ class SdkWrapperActivity : AppCompatActivity() {
             includeOverlaidPaymentPlugin: Boolean,
             clientId: String,
             hmackKey: String,
-            userType: SonectSDK.Config.UserConfig.Type = SonectSDK.Config.UserConfig.Type.CUSTOMER,
+            userType: SonectSDK.Config.UserConfig.Type? = null,
             isTrial: Boolean = false,
             signatureFields: LinkedHashMap<String, Any?> = linkedMapOf(),
             limits: String? = null
