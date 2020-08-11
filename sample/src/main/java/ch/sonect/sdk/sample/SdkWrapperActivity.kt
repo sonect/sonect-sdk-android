@@ -42,7 +42,7 @@ class SdkWrapperActivity : AppCompatActivity() {
             includeOverlaidPaymentPlugin: Boolean,
             clientId: String,
             hmackKey: String,
-            userType: SonectSDK.Config.UserConfig.Type = SonectSDK.Config.UserConfig.Type.CUSTOMER,
+            userType: SonectSDK.Config.UserConfig.Type? = null,
             isTrial: Boolean = false,
             signatureFields: LinkedHashMap<String, Any?> = linkedMapOf(),
             limits: String? = null
@@ -86,7 +86,7 @@ class SdkWrapperActivity : AppCompatActivity() {
             monthlyLimit = linkedHashMap["monthly"],
             yearlyLimit = linkedHashMap["yearly"],
             transactionLimit = linkedHashMap["transaction"],
-            type = intent.getSerializableExtra(UT) as SonectSDK.Config.UserConfig.Type,
+            type = intent.getSerializableExtra(UT) as? SonectSDK.Config.UserConfig.Type,
             isTrial = intent.getBooleanExtra(TRIAL, false)
         )
 
