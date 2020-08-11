@@ -86,7 +86,7 @@ class SdkWrapperActivity : AppCompatActivity() {
             monthlyLimit = linkedHashMap["monthly"],
             yearlyLimit = linkedHashMap["yearly"],
             transactionLimit = linkedHashMap["transaction"],
-            type = intent.getSerializableExtra(UT) as SonectSDK.Config.UserConfig.Type,
+            type = intent.getSerializableExtra(UT) as? SonectSDK.Config.UserConfig.Type,
             isTrial = intent.getBooleanExtra(TRIAL, false)
         )
 
