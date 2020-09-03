@@ -11,7 +11,7 @@ def getVersionCode = { ->
     return code
 }
 
-def sonectSdkVersion = "2.0.0-alpha11"
+def sonectSdkVersion = "2.0.0-alpha13"
 
 android {
     compileSdkVersion 28
@@ -92,10 +92,7 @@ dependencies {
     internalImplementation project(path: ':sdk-data')
     internalImplementation project(path: ':sdk-domain')
 
-    externalImplementation("com.github.sonect:android-user-sdk:$sonectSdkVersion") {
-        exclude group: "idenfySdk"
-        exclude group: "io.anyline"
-    }
+    externalImplementation("com.github.sonect:android-user-sdk:$sonectSdkVersion")
 }
 
 apply plugin: 'com.google.gms.google-services'

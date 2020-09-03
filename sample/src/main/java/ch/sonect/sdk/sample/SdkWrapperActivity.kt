@@ -86,6 +86,11 @@ class SdkWrapperActivity : AppCompatActivity() {
             monthlyLimit = linkedHashMap["monthly"],
             yearlyLimit = linkedHashMap["yearly"],
             transactionLimit = linkedHashMap["transaction"],
+            dailyLimitMax = linkedHashMap["dailyMax"],
+            weeklyLimitMax = linkedHashMap["weeklyMax"],
+            monthlyLimitMax = linkedHashMap["monthlyMax"],
+            yearlyLimitMax = linkedHashMap["yearlyMax"],
+            transactionLimitMax = linkedHashMap["transactionMax"],
             type = intent.getSerializableExtra(UT) as? SonectSDK.Config.UserConfig.Type,
             isTrial = intent.getBooleanExtra(TRIAL, false)
         )
@@ -178,6 +183,7 @@ class SdkWrapperActivity : AppCompatActivity() {
 
         override fun startPayment(
             amount: Int,
+            fees: Float,
             currency: String,
             immediateCapture: Boolean,
             listener: PaymentPlugin.ResultListener
@@ -259,6 +265,7 @@ class SdkWrapperActivity : AppCompatActivity() {
 
         override fun startPayment(
             amount: Int,
+            fees: Float,
             currency: String,
             immediateCapture: Boolean,
             listener: PaymentPlugin.ResultListener

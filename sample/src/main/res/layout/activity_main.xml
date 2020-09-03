@@ -8,8 +8,8 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_margin="32dp"
+        android:layout_height="wrap_content"
+        android:padding="32dp"
         android:gravity="center"
         android:orientation="vertical"
         tools:context=".MainActivity">
@@ -218,6 +218,42 @@
             android:inputType="number"
             android:id="@+id/transactionLimitET"
             android:hint="Transaction limit" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/dailyLimitMaxET"
+            android:inputType="number"
+            android:hint="Daily limit Max" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/weeklyLimitMaxET"
+            android:inputType="number"
+            android:hint="Weekly limit Max" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/monthlyLimitMaxET"
+            android:inputType="number"
+            android:hint="Monthly limit Max" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/yearlyLimitMaxET"
+            android:inputType="number"
+            android:hint="Yearly limit Max" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:inputType="number"
+            android:id="@+id/transactionLimitMaxET"
+            android:hint="Transaction limit Max" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btnStartSdkFragment"
