@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import ch.sonect.sdk.ActivityResultHandlingFragment
 import ch.sonect.sdk.EntryPointFragment
 import ch.sonect.sdk.SonectSDK
+import ch.sonect.sdk.contract.BrandingManager
 import ch.sonect.sdk.paymentPlugins.PaymentConfig
 import ch.sonect.sdk.paymentPlugins.PaymentPlugin
 import ch.sonect.sdk.profile.screen.SdkActionsCallback
@@ -86,6 +87,11 @@ class SdkWrapperActivity : AppCompatActivity() {
             monthlyLimit = linkedHashMap["monthly"],
             yearlyLimit = linkedHashMap["yearly"],
             transactionLimit = linkedHashMap["transaction"],
+            dailyLimitMax = linkedHashMap["dailyMax"],
+            weeklyLimitMax = linkedHashMap["weeklyMax"],
+            monthlyLimitMax = linkedHashMap["monthlyMax"],
+            yearlyLimitMax = linkedHashMap["yearlyMax"],
+            transactionLimitMax = linkedHashMap["transactionMax"],
             type = intent.getSerializableExtra(UT) as? SonectSDK.Config.UserConfig.Type,
             isTrial = intent.getBooleanExtra(TRIAL, false)
         )
@@ -103,6 +109,9 @@ class SdkWrapperActivity : AppCompatActivity() {
                 override fun onSdkLastFragmentClosed() {
                     finish()
                 }
+            })
+            .brandingManager(object : BrandingManager {
+                override fun sdkName(): String? = "The Awesome Sample"
             })
 
         if (intent.getBooleanExtra(SPM, false)) {
@@ -178,6 +187,7 @@ class SdkWrapperActivity : AppCompatActivity() {
 
         override fun startPayment(
             amount: Int,
+            fees: Float,
             currency: String,
             immediateCapture: Boolean,
             listener: PaymentPlugin.ResultListener
@@ -259,6 +269,7 @@ class SdkWrapperActivity : AppCompatActivity() {
 
         override fun startPayment(
             amount: Int,
+            fees: Float,
             currency: String,
             immediateCapture: Boolean,
             listener: PaymentPlugin.ResultListener

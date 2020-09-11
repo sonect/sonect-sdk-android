@@ -31,12 +31,17 @@ class MainActivity : AppCompatActivity() {
             clientSecret = etClientSecret.text.toString()
             hmackKey = etHmackKey.text.toString()
 
-            val limits = linkedMapOf<String, Int?>(
+            val limits = linkedMapOf(
                 "daily" to dailyLimitET.text.toString().toIntOrNull(),
                 "weekly" to weeklyLimitET.text.toString().toIntOrNull(),
                 "monthly" to monthlyLimitET.text.toString().toIntOrNull(),
                 "yearly" to yearlyLimitET.text.toString().toIntOrNull(),
-                "transaction" to transactionLimitET.text.toString().toIntOrNull()
+                "transaction" to transactionLimitET.text.toString().toIntOrNull(),
+                "dailyMax" to dailyLimitMaxET.text.toString().toIntOrNull(),
+                "weeklyMax" to weeklyLimitMaxET.text.toString().toIntOrNull(),
+                "monthlyMax" to monthlyLimitMaxET.text.toString().toIntOrNull(),
+                "yearlyMax" to yearlyLimitMaxET.text.toString().toIntOrNull(),
+                "transactionMax" to transactionLimitMaxET.text.toString().toIntOrNull()
             )
 
             val userType = when {
