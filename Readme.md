@@ -374,6 +374,18 @@ List of fields with default values
 
 !Notice that by definig colors and font you must provide references but not plain values, e.g. #ffffff will fail as well as san-serif-medium.
 
+### SDK naming
+
+In order to override name that is shown on dashboard instead of default 'Welcome to Sonect' you should pass branding manager into Config Builder.
+
+```kotlin
+builder.brandingManager(object : BrandingManager {
+  override fun sdkName(): String? = "My Awesome Implementation"
+})
+```
+
+
+
 ## Proguard / R8
 In case you're using proguard or R8 to obfuscate and optimize your code,
 the following rules should be enough to maintain all expected functionality.

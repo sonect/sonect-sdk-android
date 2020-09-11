@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import ch.sonect.sdk.ActivityResultHandlingFragment
 import ch.sonect.sdk.EntryPointFragment
 import ch.sonect.sdk.SonectSDK
+import ch.sonect.sdk.contract.BrandingManager
 import ch.sonect.sdk.paymentPlugins.PaymentConfig
 import ch.sonect.sdk.paymentPlugins.PaymentPlugin
 import ch.sonect.sdk.profile.screen.SdkActionsCallback
@@ -108,6 +109,9 @@ class SdkWrapperActivity : AppCompatActivity() {
                 override fun onSdkLastFragmentClosed() {
                     finish()
                 }
+            })
+            .brandingManager(object : BrandingManager {
+                override fun sdkName(): String? = "The Awesome Sample"
             })
 
         if (intent.getBooleanExtra(SPM, false)) {
