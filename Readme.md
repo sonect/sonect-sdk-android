@@ -25,12 +25,25 @@ allprojects {
 
 Latest version of SDK: [![](https://jitpack.io/v/sonect/android-user-sdk.svg)](https://jitpack.io/#sonect/android-user-sdk)
 
-Add to `build.gradle` of your app
+Add `SDK` to `build.gradle` of your app. SDK could work with both `okhttp3` major versions 3 and 4. They have slightly incompatible changes so you **must** define which one you want to use.
+
+You should
+
+- Exclude one of `okhttp3` or `okhttp4` from dependencies
+- Make sure that other lib is connected - both okhttp + loggingInterceptor
+
+Sample of using `okhttp3` major version 3.
 
 ```Gradle
 dependencies {
 	...
-    implementation ('com.github.sonect:android-user-sdk:{latestVersion}')
+    implementation ('com.github.sonect:android-user-sdk:{latestVersion}') {
+        exclude module: "okhttp4"
+    }
+    
+    // Okhttp must be provided as a separate dependency
+    externalImplementation "com.squareup.okhttp3:okhttp:3.14.9"
+    externalImplementation "com.squareup.okhttp3:logging-interceptor:3.14.9"
     ...
 }
 ```
@@ -263,7 +276,7 @@ override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) 
 
 `onHostedActivityResult` in `ActivityResultHandlingFragment` will route info to proper fragment in SDK stack. 
 
-## Activity SDK implementation
+## Activity SDK implementation [Deprecated]
 
 Sonect SDK could be started completely by inner SDK activity. Main advantage is that you don’t need to think about navigation flow. Main disadvantage is that in case you want to handle payments in the outer app you need to completely close SDK activity, handle onActivityResult and open SDK then on receipt screen. During switching between activities it’s possible that system could even kill outer activity and then recreate it which could lead to potential state loss (depends on outer app implementation).
 
@@ -374,7 +387,11 @@ List of fields with default values
 
 !Notice that by definig colors and font you must provide references but not plain values, e.g. #ffffff will fail as well as san-serif-medium.
 
-### SDK naming
+### SDK run time configuration
+
+Some SDK values could be overriden by outer app.
+
+#### SDK naming
 
 In order to override name that is shown on dashboard instead of default 'Welcome to Sonect' you should pass branding manager into Config Builder.
 
@@ -382,6 +399,34 @@ In order to override name that is shown on dashboard instead of default 'Welcome
 builder.brandingManager(object : BrandingManager {
   override fun sdkName(): String? = "My Awesome Implementation"
 })
+```
+
+### SDK bulid time configuration
+
+Some SDK constants that control behaviour could be provided during the compile time. For that you could provide keys in resources*. 
+
+*Check sample, there is a `configs.xml` file which contains all Sonect related keys.
+
+#### Default barcode type
+
+User could swith between `barcode` and `QRCode` inside receipt screen. You have ability to choose which one should be default.
+
+```xml
+<integer name="sonect_barcode_type_to_show">@integer/sonect_qrcode_type_enum</integer>
+```
+
+Default value is barcode.
+
+#### Not enough balance dialog
+
+When user click on the `Confirm` button and has not enough balance we show dialog. Those 2 strings could be overriden.
+
+```xml
+// Title:secondary_not_enough_balance
+// Message:not_enough_balance
+
+<string name="secondary_not_enough_balance">Hey, where\'s Money?</string>
+<string name="not_enough_balance">Seems like not enough $$$, need to do smth!</string>
 ```
 
 

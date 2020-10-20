@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="sonect_barcode_type_to_show">@integer/sonect_qrcode_type_enum</integer>
+    <string name="secondary_not_enough_balance">Hey, where\'s Money?</string>
+    <string name="not_enough_balance">Seems like not enough $$$, need to do smth!</string>
+</resources>

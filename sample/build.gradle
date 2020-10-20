@@ -11,7 +11,7 @@ def getVersionCode = { ->
     return code
 }
 
-def sonectSdkVersion = "2.3.0-alpha03"
+def sonectSdkVersion = "2.3.1-alpha04"
 
 android {
     compileSdkVersion 28
@@ -33,6 +33,7 @@ android {
 
         missingDimensionStrategy 'sdkDependency', 'external'
         missingDimensionStrategy 'outerInner', 'internal'
+        missingDimensionStrategy 'okhttpVersion', 'v4'
     }
 
     signingConfigs {
@@ -93,10 +94,16 @@ dependencies {
     internalImplementation project(path: ':sdk-common')
     internalImplementation project(path: ':sdk-data')
     internalImplementation project(path: ':sdk-domain')
+    internalImplementation project(path: ':okhttp')
 
     coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:1.0.10'
 
-    externalImplementation("com.github.sonect:android-user-sdk:$sonectSdkVersion")
+    externalImplementation("com.github.sonect:android-user-sdk:$sonectSdkVersion") {
+        exclude module: "okhttp4"
+    }
+
+    externalImplementation "com.squareup.okhttp3:okhttp:3.14.9"
+    externalImplementation "com.squareup.okhttp3:logging-interceptor:3.14.9"
 }
 
 apply plugin: 'com.google.gms.google-services'
