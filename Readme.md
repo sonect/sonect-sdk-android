@@ -444,6 +444,8 @@ Please let us know if you find any issues.
 -keepclassmembers class * {
     @com.google.gson.annotations.SerializedName <fields>;
 }
+
+-keep class com.google.android.gms.maps.model.Marker { *; }
 ```
 
 This is needed to maintain json serialization after proguard.
