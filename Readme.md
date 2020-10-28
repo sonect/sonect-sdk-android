@@ -383,7 +383,11 @@ List of fields with default values
         <item name="sonectFontSemiBold">@font/raleway_semibold</item>
         <item name="sonectFontMedium">@font/raleway_medium</item>
         <item name="sonectFontLight">@font/raleway_light</item>
+
+        <item name="sonectButtonTextColor">{sonect primary text color}</item>
 ```
+
+`sonectButtonTextColor` is the text color which applies of buttons/chips with background.
 
 !Notice that by definig colors and font you must provide references but not plain values, e.g. #ffffff will fail as well as san-serif-medium.
 

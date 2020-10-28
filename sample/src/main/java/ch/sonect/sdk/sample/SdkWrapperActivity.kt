@@ -326,11 +326,11 @@ class SdkWrapperActivity : AppCompatActivity() {
         }
 
         override fun getTextColor(): Int {
-            return R.color.sonectRedViolet
+            return R.color.sonectWhite
         }
 
         override fun getBackgroundGradient(): Pair<Int, Int> {
-            return Pair(R.color.sonectSoftBlue, R.color.sonectOrangeYellow)
+            return Pair(R.color.color5, R.color.color3)
         }
 
         override fun getCurrency(): String? {
