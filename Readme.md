@@ -432,20 +432,3 @@ When user click on the `Confirm` button and has not enough balance we show dialo
 <string name="secondary_not_enough_balance">Hey, where\'s Money?</string>
 <string name="not_enough_balance">Seems like not enough $$$, need to do smth!</string>
 ```
-
-
-
-## Proguard / R8
-In case you're using proguard or R8 to obfuscate and optimize your code,
-the following rules should be enough to maintain all expected functionality.
-Please let us know if you find any issues.
-
-```xml
--keepclassmembers class * {
-    @com.google.gson.annotations.SerializedName <fields>;
-}
-
--keep class com.google.android.gms.maps.model.Marker { *; }
-```
-
-This is needed to maintain json serialization after proguard.
