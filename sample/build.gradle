@@ -11,14 +11,14 @@ def getVersionCode = { ->
     return code
 }
 
-def sonectSdkVersion = "2.4.1-beta01"
+def sonectSdkVersion = "3.0.0-alpha03"
 
 android {
-    compileSdkVersion 28
+    compileSdkVersion 29
     defaultConfig {
         applicationId "ch.sonect.sdk.sample"
         minSdkVersion 19
-        targetSdkVersion 28
+        targetSdkVersion 29
         versionCode getVersionCode()
         versionName "1.0+" + getVersionCode()
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
