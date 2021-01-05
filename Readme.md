@@ -421,6 +421,22 @@ User could swith between `barcode` and `QRCode` inside receipt screen. You have 
 
 Default value is barcode.
 
+#### Showing back button on root screens
+
+By default SDK has no back button in toolbar for root screens (dashboard and same level screen with bottom navigation). You could define if you want to have this back button which will just close SDK by overriding resource config.
+
+```xml
+<bool name="sonect_should_show_back_on_root">true</bool>
+```
+
+#### Enabling possibility to verify user through Sonect
+
+By default verification possibility is toggled of. If you want to let user start verification flow through Sonect process you should override resource config. 
+
+```xml
+<bool name="sonect_is_verification_flow_enabled">true</bool>
+```
+
 #### Not enough balance dialog
 
 When user click on the `Confirm` button and has not enough balance we show dialog. Those 2 strings could be overriden.
