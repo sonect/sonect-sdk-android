@@ -437,6 +437,18 @@ By default verification possibility is toggled of. If you want to let user start
 <bool name="sonect_is_verification_flow_enabled">true</bool>
 ```
 
+#### Show payment reference on receipt screen
+
+Payment reference/operational ID could be shown on receipt. Developer could define on which type of receipt it should be shown by status.
+
+```xml
+<bool name="sonect_should_show_payment_reference_on_expired_receipt">false</bool>
+<bool name="sonect_should_show_payment_reference_on_cancelled_receipt">false</bool>
+<bool name="sonect_should_show_payment_reference_on_rejected_receipt">true</bool>
+<bool name="sonect_should_show_payment_reference_on_confirmed_receipt">true</bool>
+<bool name="sonect_should_show_payment_reference_on_failed_receipt">true</bool>
+```
+
 #### Not enough balance dialog
 
 When user click on the `Confirm` button and has not enough balance we show dialog. Those 2 strings could be overriden.
