@@ -1,7 +1,3 @@
 <resources>
-    <style name="CustomAppTheme" parent="Theme.AppCompat">
-        <item name="sonectColor3">@color/color3</item>
-        <item name="sonectColor5">@color/color5</item>
-        <item name="sonectButtonTextColor">@color/sonectWhite</item>
-    </style>
+    <style name="CustomAppTheme" parent="Theme.AppCompat" />
 </resources>

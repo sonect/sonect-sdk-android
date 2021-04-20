@@ -1,4 +1,4 @@
-# Sonect SDK for Android [PRELIMINARY]
+# Sonect SDK for Android
 
 In this document we will go through the necessary steps to integrate
 Sonect SDK in your Android app. 
@@ -68,6 +68,28 @@ android.useAndroidX=true
 ```
 
 ## SDK Integration 
+
+### Initialization (from v3.3)
+
+- You must call `init` from your application class.
+- You must implement `AppStorage` interface with your `Application `. In order to make it simple we've already provide `SonectApplication` that could be used as a parent if it suitable for you or you could implement it by yourself.
+
+Sample implemnetation of the Application class based on `SonectApplication`:
+
+```kotlin
+open class SonectApplication : Application(), AppStorage {
+
+    private val storage = mutableMapOf<Class<*>, Any>()
+
+    override fun <T : Any> set(clazz: Class<T>, value: T) {
+        storage[clazz] = value
+    }
+
+    @Suppress("UNCHECKED_CAST")
+    override fun <T : Any> get(clazz: Class<T>) = storage[clazz] as? T
+
+}
+```
 
 ### Fragment SDK integration
 
@@ -364,6 +386,8 @@ You must provide PaymentMethodReference to be able to return to dashboard and co
 
 ## Theming and styling
 
+### Colors (Deprecated, prior v3.3)
+
 You could provide 5 colors and 6 fonts to the app.
 
 ![Sonect colors](https://api.monosnap.com/file/download?id=300PYTgN9OUffCGbVDMJ0nNswZBI3l)
@@ -390,6 +414,45 @@ List of fields with default values
 `sonectButtonTextColor` is the text color which applies of buttons/chips with background.
 
 !Notice that by definig colors and font you must provide references but not plain values, e.g. #ffffff will fail as well as san-serif-medium.
+
+### Color (From v3.3)
+
+```xml
+        <item name="sonectBackgroundColor1">#000000</item>
+        <item name="sonectBackgroundColor2">#202020</item>
+        <item name="sonectBackgroundColor3">#393939</item>
+        <item name="sonectBackgroundColor4">#000000</item>
+        <item name="sonectBackgroundColor5">#000000</item>
+        <item name="sonectBackgroundColor6">#000000</item>
+
+        <item name="sonectBorderColor1">@android:color/transparent</item>
+        <item name="sonectBorderColor2">#ffffff</item>
+
+        <item name="sonectTitleColor">#ffffff</item>
+        <item name="sonectTitleColorActive">#000000</item>
+
+        <item name="sonectDescriptionColor">#9b9b9b</item>
+
+        <item name="sonectAlertTextColor1">#ffffff</item>
+        <item name="sonectAlertTextColor2">#ffffff</item>
+        <item name="sonectAlertTextColor3">#ffffff</item>
+
+        <item name="sonectStatusTextColor1">#ffffff</item>
+        <item name="sonectStatusTextColor2">#ffffff</item>
+        <item name="sonectStatusTextColor3">#ffffff</item>
+        <item name="sonectStatusTextColor4">#ffffff</item>
+
+        <item name="sonectIconColor1">#ffffff</item>
+        <item name="sonectIconColor2">#ffffff</item>
+        <item name="sonectIconColor3">#ffffff</item>
+
+        <item name="sonectPrimaryColor1">#ff0069</item>
+        <item name="sonectPrimaryColor2">#494949</item>
+        <item name="sonectPrimaryColor3">#ffa300</item>
+        <item name="sonectPrimaryColor4">#bfe500</item>
+```
+
+
 
 ### SDK run time configuration
 
