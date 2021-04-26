@@ -1,3 +1,140 @@
 <resources>
-    <style name="CustomAppTheme" parent="Theme.AppCompat" />
+
+    <style name="CustomAppTheme" parent="Base.Theme.AppCompat" />
+
+    <style name="HighlightTheme" parent="Base.Theme.AppCompat">
+        <item name="sonectBackgroundColor1">#0A0A0A</item>
+        <item name="sonectBackgroundColor2">#141414</item>
+        <item name="sonectBackgroundColor3">#1F1F1F</item>
+        <item name="sonectBackgroundColor4">#292929</item>
+        <item name="sonectBackgroundColor5">#333333</item>
+        <item name="sonectBackgroundColor6">#3D3D3D</item>
+
+        <item name="sonectBorderColor1">@android:color/transparent</item>
+        <item name="sonectBorderColor2">#ffffff</item>
+
+        <item name="sonectTitleColor">#ffffff</item>
+        <item name="sonectTitleColorActive">#000000</item>
+
+        <item name="sonectDescriptionColor">#9b9b9b</item>
+
+        <item name="sonectAlertTextColor1">#ffffff</item>
+        <item name="sonectAlertTextColor2">#F5F5F5</item>
+        <item name="sonectAlertTextColor3">#EBEBEB</item>
+
+        <item name="sonectStatusTextColor1">#E0E0E0</item>
+        <item name="sonectStatusTextColor2">#D6D6D6</item>
+        <item name="sonectStatusTextColor3">#CCCCCC</item>
+        <item name="sonectStatusTextColor4">#C2C2C2</item>
+
+        <item name="sonectIconColor1">#B8B8B8</item>
+        <item name="sonectIconColor2">#ADADAD</item>
+        <item name="sonectIconColor3">#A3A3A3</item>
+
+        <item name="sonectPrimaryColor1">#999999</item>
+        <item name="sonectPrimaryColor2">#8F8F8F</item>
+        <item name="sonectPrimaryColor3">#858585</item>
+        <item name="sonectPrimaryColor4">#7A7A7A</item>
+    </style>
+
+    <style name="HighlightTheme.BackgroundColor1">
+        <item name="sonectBackgroundColor1">#ff0000</item>
+    </style>
+
+    <style name="HighlightTheme.BackgroundColor2">
+        <item name="sonectBackgroundColor2">#ff0000</item>
+    </style>
+
+    <style name="HighlightTheme.BackgroundColor3">
+        <item name="sonectBackgroundColor3">#ff0000</item>
+    </style>
+
+    <style name="HighlightTheme.BackgroundColor4">
+        <item name="sonectBackgroundColor4">#ff0000</item>
+    </style>
+
+    <style name="HighlightTheme.BackgroundColor5">
+        <item name="sonectBackgroundColor5">#ff0000</item>
+    </style>
+
+    <style name="HighlightTheme.BackgroundColor6">
+        <item name="sonectBackgroundColor6">#ff0000</item>
+    </style>
+
+    <style name="HighlightTheme.BorderColor1">
+        <item name="sonectBorderColor1">#ff0000</item>
+    </style>
+
+    <style name="HighlightTheme.BorderColor2">
+        <item name="sonectBorderColor2">#ff0000</item>
+    </style>
+
+    <style name="HighlightTheme.TitleColor">
+        <item name="sonectTitleColor">#ff0000</item>
+    </style>
+
+    <style name="HighlightTheme.TitleColorActive">
+        <item name="sonectTitleColorActive">#ff0000</item>
+    </style>
+
+    <style name="HighlightTheme.DescriptionColor">
+        <item name="sonectDescriptionColor">#ff0000</item>
+    </style>
+
+    <style name="HighlightTheme.AlertTextColor1">
+        <item name="sonectAlertTextColor1">#ff0000</item>
+    </style>
+
+    <style name="HighlightTheme.AlertTextColor2">
+        <item name="sonectAlertTextColor2">#ff0000</item>
+    </style>
+
+    <style name="HighlightTheme.AlertTextColor3">
+        <item name="sonectAlertTextColor3">#ff0000</item>
+    </style>
+
+    <style name="HighlightTheme.StatusTextColor1">
+        <item name="sonectStatusTextColor1">#ff0000</item>
+    </style>
+
+    <style name="HighlightTheme.StatusTextColor2">
+        <item name="sonectStatusTextColor2">#ff0000</item>
+    </style>
+
+    <style name="HighlightTheme.StatusTextColor3">
+        <item name="sonectStatusTextColor3">#ff0000</item>
+    </style>
+
+    <style name="HighlightTheme.StatusTextColor4">
+        <item name="sonectStatusTextColor4">#ff0000</item>
+    </style>
+
+    <style name="HighlightTheme.IconColor1">
+        <item name="sonectIconColor1">#ff0000</item>
+    </style>
+
+    <style name="HighlightTheme.IconColor2">
+        <item name="sonectIconColor2">#ff0000</item>
+    </style>
+
+    <style name="HighlightTheme.IconColor3">
+        <item name="sonectIconColor3">#ff0000</item>
+    </style>
+
+    <style name="HighlightTheme.PrimaryColor1">
+        <item name="sonectPrimaryColor1">#ff0000</item>
+    </style>
+
+    <style name="HighlightTheme.PrimaryColor2">
+        <item name="sonectPrimaryColor2">#ff0000</item>
+    </style>
+
+    <style name="HighlightTheme.PrimaryColor3">
+        <item name="sonectPrimaryColor3">#ff0000</item>
+    </style>
+
+    <style name="HighlightTheme.PrimaryColor4">
+        <item name="sonectPrimaryColor4">#ff0000</item>
+    </style>
+
 </resources>

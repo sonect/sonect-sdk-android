@@ -4,6 +4,8 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Base64
 import android.util.Log
+import android.view.View
+import android.widget.ArrayAdapter
 import androidx.appcompat.app.AppCompatActivity
 import ch.sonect.sdk.SDKEntryPointActivity
 import ch.sonect.sdk.SonectSDK
@@ -12,6 +14,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 import javax.crypto.Mac
 import javax.crypto.spec.SecretKeySpec
 
+
 class MainActivity : AppCompatActivity() {
 
     // Id shuold be some value unique and constant for single user
@@ -19,6 +22,41 @@ class MainActivity : AppCompatActivity() {
     var clientId = ""
     var clientSecret = ""
     var hmackKey = ""
+
+    private val themesMapping = mapOf(
+        "BackgroundColor1" to R.style.HighlightTheme_BackgroundColor1,
+        "BackgroundColor2" to R.style.HighlightTheme_BackgroundColor2,
+        "BackgroundColor3" to R.style.HighlightTheme_BackgroundColor3,
+        "BackgroundColor4" to R.style.HighlightTheme_BackgroundColor4,
+        "BackgroundColor5" to R.style.HighlightTheme_BackgroundColor5,
+        "BackgroundColor6" to R.style.HighlightTheme_BackgroundColor6,
+
+        "BorderColor1" to R.style.HighlightTheme_BorderColor1,
+        "BorderColor2" to R.style.HighlightTheme_BorderColor2,
+
+        "TitleColor" to R.style.HighlightTheme_TitleColor,
+        "TitleColorActive" to R.style.HighlightTheme_TitleColorActive,
+
+        "DescriptionColor" to R.style.HighlightTheme_DescriptionColor,
+
+        "AlertTextColor1" to R.style.HighlightTheme_AlertTextColor1,
+        "AlertTextColor2" to R.style.HighlightTheme_AlertTextColor2,
+        "AlertTextColor3" to R.style.HighlightTheme_AlertTextColor3,
+
+        "StatusTextColor1" to R.style.HighlightTheme_StatusTextColor1,
+        "StatusTextColor2" to R.style.HighlightTheme_StatusTextColor2,
+        "StatusTextColor3" to R.style.HighlightTheme_StatusTextColor3,
+        "StatusTextColor4" to R.style.HighlightTheme_StatusTextColor4,
+
+        "IconColor1" to R.style.HighlightTheme_IconColor1,
+        "IconColor2" to R.style.HighlightTheme_IconColor2,
+        "IconColor3" to R.style.HighlightTheme_IconColor3,
+
+        "PrimaryColor1" to R.style.HighlightTheme_PrimaryColor1,
+        "PrimaryColor2" to R.style.HighlightTheme_PrimaryColor2,
+        "PrimaryColor3" to R.style.HighlightTheme_PrimaryColor3,
+        "PrimaryColor4" to R.style.HighlightTheme_PrimaryColor4,
+    )
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -50,6 +88,12 @@ class MainActivity : AppCompatActivity() {
                 else ->  null
             }
 
+            val theme = if (chkHighlight.isChecked) {
+                themesMapping[dropDownView.selectedItem as? String] ?: -1
+            } else {
+                -1
+            }
+
             SdkWrapperActivity.start(
                 this,
                 chkLight.isChecked,
@@ -63,7 +107,8 @@ class MainActivity : AppCompatActivity() {
                 hmackKey,
                 userType = userType,
                 isTrial = trialCB.isChecked,
-                limits = Gson().toJson(limits)
+                limits = Gson().toJson(limits),
+                customTheme = theme
             )
         }
 
@@ -120,6 +165,17 @@ class MainActivity : AppCompatActivity() {
                 ), isLightMode = chkLight.isChecked
             )
         }
+
+        chkHighlight.setOnCheckedChangeListener { _, isChecked ->
+            dropDownView.visibility = if (isChecked) View.VISIBLE else View.GONE
+        }
+
+        val adapter = ArrayAdapter(
+            this,
+            android.R.layout.simple_spinner_dropdown_item,
+            themesMapping.keys.toTypedArray()
+        )
+        dropDownView.adapter = adapter
     }
 
     private fun getTokenSDK(): String {
