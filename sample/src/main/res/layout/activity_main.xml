@@ -98,7 +98,22 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Light" />
+
+            <RadioButton
+                android:id="@+id/chkHighlight"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Highlight" />
         </RadioGroup>
+
+        <Spinner
+            android:id="@+id/dropDownView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:spinnerMode="dropdown"
+            android:visibility="gone"
+            tools:visibility="visible"/>
 
         <TextView
             android:layout_width="wrap_content"
