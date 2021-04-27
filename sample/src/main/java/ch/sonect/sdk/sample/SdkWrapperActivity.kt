@@ -4,6 +4,7 @@ import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.util.Base64
+import androidx.annotation.StyleRes
 import androidx.appcompat.app.AppCompatActivity
 import ch.sonect.sdk.ActivityResultHandlingFragment
 import ch.sonect.sdk.EntryPointFragment
@@ -23,6 +24,7 @@ class SdkWrapperActivity : AppCompatActivity() {
     companion object {
         const val HMK = "hmk"
         const val LM = "lm"
+        const val CUSTOM_THEME = "CUSTOM_THEME"
         const val UID = "uid"
         const val TSDK = "toksdk"
         const val SIGN = "signature"
@@ -46,7 +48,8 @@ class SdkWrapperActivity : AppCompatActivity() {
             userType: SonectSDK.Config.UserConfig.Type? = null,
             isTrial: Boolean = false,
             signatureFields: LinkedHashMap<String, Any?> = linkedMapOf(),
-            limits: String? = null
+            limits: String? = null,
+            @StyleRes customTheme: Int = -1
         ) {
             val newActivity = Intent(activity, SdkWrapperActivity::class.java)
             newActivity.putExtra(LM, lightMode)
@@ -62,11 +65,17 @@ class SdkWrapperActivity : AppCompatActivity() {
             newActivity.putExtra(TRIAL, isTrial)
             newActivity.putExtra(FIELDS, signatureFields)
             newActivity.putExtra(LT, limits)
+            newActivity.putExtra(CUSTOM_THEME, customTheme)
             activity.startActivity(newActivity)
         }
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        val customTheme = intent.getIntExtra(CUSTOM_THEME, -1)
+        if (customTheme != -1) {
+            setTheme(customTheme)
+        }
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_wrapper)
 
