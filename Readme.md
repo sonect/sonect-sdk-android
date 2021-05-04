@@ -452,7 +452,13 @@ List of fields with default values
         <item name="sonectPrimaryColor4">#bfe500</item>
 ```
 
+### Toolbar elevation
 
+Developer could decide which elevation toolbar inside SDK should have. By default it's 0dp.
+
+```xml
+<item name="sonectToolbarElevation">0dp</item>
+```
 
 ### SDK run time configuration
 
