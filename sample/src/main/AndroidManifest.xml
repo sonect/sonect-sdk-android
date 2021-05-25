@@ -30,6 +30,12 @@
         <meta-data
             android:name="io.fabric.ApiKey"
             android:value="e699481fb5b4192ecc1f505120a5e830e762fb8e" />
+
+        <provider
+            android:name="androidx.work.impl.WorkManagerInitializer"
+            android:authorities="${applicationId}.workmanager-init"
+            android:exported="false"
+            tools:node="remove" />
     </application>
 
 </manifest>
