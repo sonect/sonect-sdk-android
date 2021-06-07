@@ -14,7 +14,6 @@ import kotlinx.android.synthetic.main.activity_main.*
 import javax.crypto.Mac
 import javax.crypto.spec.SecretKeySpec
 
-
 class MainActivity : AppCompatActivity() {
 
     // Id shuold be some value unique and constant for single user
@@ -87,7 +86,7 @@ class MainActivity : AppCompatActivity() {
             val userType = when {
                 customerRB.isChecked -> SonectSDK.Config.UserConfig.Type.CUSTOMER
                 employeeRB.isChecked -> SonectSDK.Config.UserConfig.Type.EMPLOYEE
-                else ->  null
+                else -> null
             }
 
             val theme = if (chkHighlight.isChecked) {
@@ -157,7 +156,7 @@ class MainActivity : AppCompatActivity() {
         btnResumeSdkWithReceipt.setOnClickListener {
             // Each integration should have it's own sdk token
             val tokenSDK =
-                Base64.encodeToString("${clientId}:${clientSecret}".toByteArray(), Base64.DEFAULT)
+                Base64.encodeToString("$clientId:$clientSecret".toByteArray(), Base64.DEFAULT)
                     .replace("\n", "")
             userId = etUserId.text.toString()
             val signature = calculateSignature(userId)
@@ -187,7 +186,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun getTokenSDK(): String {
-        return Base64.encodeToString("${clientId}:${clientSecret}".toByteArray(), Base64.DEFAULT)
+        return Base64.encodeToString("$clientId:$clientSecret".toByteArray(), Base64.DEFAULT)
             .replace("\n", "")
     }
 
@@ -224,7 +223,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun calculateSignature(uid: String): String {
-        val hmacString = "${clientId}:$packageName:$uid"
+        val hmacString = "$clientId:$packageName:$uid"
         return Base64.encodeToString(createHmac(hmacString.toByteArray()), Base64.DEFAULT).trim()
     }
 
@@ -253,4 +252,5 @@ class MainActivity : AppCompatActivity() {
             super.onActivityResult(requestCode, resultCode, data)
         }
     }
+
 }

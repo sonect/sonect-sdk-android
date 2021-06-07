@@ -37,4 +37,5 @@ class CustomPaymentActivity : AppCompatActivity() {
             finish()
         }
     }
+
 }

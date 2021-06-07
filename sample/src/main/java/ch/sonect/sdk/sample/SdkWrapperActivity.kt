@@ -88,7 +88,7 @@ class SdkWrapperActivity : AppCompatActivity() {
         val gson = Gson()
         val entityType: Type =
             object : TypeToken<LinkedHashMap<String, Int?>>() {}.type
-        val linkedHashMap: LinkedHashMap<String,Int?> = gson.fromJson(str, entityType)
+        val linkedHashMap: LinkedHashMap<String, Int?> = gson.fromJson(str, entityType)
 
         val userConfig = SonectSDK.Config.UserConfig(
             dailyLimit = linkedHashMap["daily"],
@@ -234,7 +234,7 @@ class SdkWrapperActivity : AppCompatActivity() {
             return false
         }
 
-        //TODO those are for simulating signature
+        // TODO those are for simulating signature
         private fun calculateSignature(uid: String): String {
             return Base64.encodeToString(createHmac(uid.toByteArray()), Base64.DEFAULT)
                 .trim()
@@ -291,7 +291,7 @@ class SdkWrapperActivity : AppCompatActivity() {
             listener.onTransactionSuccess(ref, calculateSignature(sign), date)
         }
 
-        //TODO those are for simulating signature
+        // TODO those are for simulating signature
         private fun calculateSignature(uid: String): String {
             return Base64.encodeToString(createHmac(uid.toByteArray()), Base64.DEFAULT)
                 .trim()
