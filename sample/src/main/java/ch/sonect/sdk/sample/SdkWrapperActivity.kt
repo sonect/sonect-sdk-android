@@ -35,6 +35,7 @@ class SdkWrapperActivity : AppCompatActivity() {
         const val TRIAL = "trial"
         const val FIELDS = "fields"
         const val LT = "limits"
+        const val FAQ_URL = "faqurl"
         internal const val ENV = "enviroment"
 
         fun start(
@@ -49,7 +50,8 @@ class SdkWrapperActivity : AppCompatActivity() {
             isTrial: Boolean = false,
             signatureFields: LinkedHashMap<String, Any?> = linkedMapOf(),
             limits: String? = null,
-            @StyleRes customTheme: Int = -1
+            @StyleRes customTheme: Int = -1,
+            contactInfo: String
         ) {
             val newActivity = Intent(activity, SdkWrapperActivity::class.java)
             newActivity.putExtra(LM, lightMode)
@@ -66,6 +68,7 @@ class SdkWrapperActivity : AppCompatActivity() {
             newActivity.putExtra(FIELDS, signatureFields)
             newActivity.putExtra(LT, limits)
             newActivity.putExtra(CUSTOM_THEME, customTheme)
+            newActivity.putExtra(FAQ_URL, contactInfo)
             activity.startActivity(newActivity)
         }
     }
@@ -144,6 +147,11 @@ class SdkWrapperActivity : AppCompatActivity() {
         if (intent.getBooleanExtra(LM, false)) {
             configBuilder.setLightTheme()
         }
+
+        configBuilder.contactInfo(
+            SonectSDK.Config.ContactInfo(faqUrl = intent.getStringExtra(FAQ_URL))
+        )
+
         val config = configBuilder.build()
         val sonectSDK = SonectSDK(
             this,

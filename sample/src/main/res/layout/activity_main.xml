@@ -270,6 +270,14 @@
             android:id="@+id/transactionLimitMaxET"
             android:hint="Transaction limit Max" />
 
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/faqView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:hint="FAQ url"
+            android:inputType="textUri" />
+
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btnStartSdkFragment"
             android:layout_width="match_parent"

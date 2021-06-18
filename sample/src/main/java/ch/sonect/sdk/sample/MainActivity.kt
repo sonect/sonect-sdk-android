@@ -109,7 +109,8 @@ class MainActivity : AppCompatActivity() {
                 userType = userType,
                 isTrial = trialCB.isChecked,
                 limits = Gson().toJson(limits),
-                customTheme = theme
+                customTheme = theme,
+                contactInfo = faqView.text.toString()
             )
         }
 
