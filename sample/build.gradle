@@ -53,11 +53,6 @@ android {
             shrinkResources true
             signingConfig signingConfigs.customDebug
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-
-            firebaseAppDistribution {
-                groups="internal"
-                releaseNotes="Sonect SDK version inside: $sonectSdkVersion"
-            }
         }
 
         debug {
@@ -71,9 +66,17 @@ android {
     productFlavors {
         internal {
             dimension = "sdkDependency"
+            firebaseAppDistribution {
+                groups="internal"
+                releaseNotes="Internal RC Sonect SDK version inside"
+            }
         }
         external {
             dimension = "sdkDependency"
+            firebaseAppDistribution {
+                groups="internal"
+                releaseNotes="Sonect SDK version inside: $sonectSdkVersion"
+            }
         }
     }
 }
