@@ -19,6 +19,8 @@ import java.lang.reflect.Type
 import javax.crypto.Mac
 import javax.crypto.spec.SecretKeySpec
 
+const val ZKB = "f6f045f0-5c67-11ea-a6cf-2f39fea80425"
+
 class SdkWrapperActivity : AppCompatActivity() {
 
     companion object {
@@ -127,7 +129,8 @@ class SdkWrapperActivity : AppCompatActivity() {
             builder.addPaymentPlugin(
                 MySilentPaymentPlugin(
                     signature_start,
-                    intent.getStringExtra(HMK)
+                    intent.getStringExtra(HMK),
+                    intent.getStringExtra(CID)
                 )
             )
         }
@@ -268,8 +271,9 @@ class SdkWrapperActivity : AppCompatActivity() {
     }
 
     class MySilentPaymentPlugin(
-        val signatureStart: String,
-        val hmk: String
+        private val signatureStart: String,
+        private val hmk: String,
+        private val clientId: String?
     ) : PaymentPlugin {
 
         override fun init(paymentConfig: PaymentConfig?) {
@@ -283,7 +287,12 @@ class SdkWrapperActivity : AppCompatActivity() {
             immediateCapture: Boolean,
             listener: PaymentPlugin.ResultListener
         ) {
-            val date = System.currentTimeMillis().toString()
+            val date = if (clientId == ZKB) {
+                "CAPTURED"
+            } else {
+                System.currentTimeMillis().toString()
+            }
+
             val signatureEnd = ":$amount:$currency:$date"
             val ref = Math.random().toString()
             val sign = "$signatureStart:$ref$signatureEnd"
