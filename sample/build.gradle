@@ -17,8 +17,8 @@ android {
     compileSdkVersion 29
     defaultConfig {
         applicationId "ch.sonect.sdk.sample"
-        minSdkVersion 19
-        targetSdkVersion 29
+        minSdk 19
+        targetSdk 29
         versionCode getVersionCode()
         versionName "1.0+" + getVersionCode()
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
