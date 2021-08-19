@@ -87,7 +87,7 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath 'com.google.firebase:firebase-appdistribution-gradle:2.0.1'
+        classpath 'com.google.firebase:firebase-appdistribution-gradle:2.1.3'
     }
 }
 
