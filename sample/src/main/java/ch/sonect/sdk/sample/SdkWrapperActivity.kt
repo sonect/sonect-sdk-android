@@ -38,8 +38,11 @@ class SdkWrapperActivity : AppCompatActivity() {
         internal const val ENV = "enviroment"
 
         fun start(
-            activity: Activity, lightMode: Boolean, userId: String,
-            tokenSDK: String, signature: String,
+            activity: Activity,
+            lightMode: Boolean,
+            userId: String,
+            tokenSDK: String,
+            signature: String,
             environment: SonectSDK.Config.Enviroment,
             includeSilentPaymentPlugin: Boolean,
             includeOverlaidPaymentPlugin: Boolean,
