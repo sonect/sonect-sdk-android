@@ -112,8 +112,9 @@ class SdkWrapperActivity : AppCompatActivity() {
             .enviroment(intent.getSerializableExtra(ENV) as SonectSDK.Config.Enviroment)
             .userCredentials(
                 SonectSDK.Config.UserCredentials(
-                    intent.getStringExtra(UID),
-                    intent.getStringExtra(TSDK), intent.getStringExtra(SIGN)
+                    intent.getStringExtra(UID) ?: "",
+                    intent.getStringExtra(TSDK) ?: "",
+                    intent.getStringExtra(SIGN) ?: ""
                 )
             )
             .userConfiguration(userConfig)
@@ -130,7 +131,7 @@ class SdkWrapperActivity : AppCompatActivity() {
             builder.addPaymentPlugin(
                 MySilentPaymentPlugin(
                     signature_start,
-                    intent.getStringExtra(HMK)
+                    intent.getStringExtra(HMK) ?: ""
                 )
             )
         }
@@ -139,7 +140,7 @@ class SdkWrapperActivity : AppCompatActivity() {
             builder.addPaymentPlugin(
                 MyOverlayScreenPaymentPlugin(
                     signature_start,
-                    intent.getStringExtra(HMK)
+                    intent.getStringExtra(HMK) ?: ""
                 )
             )
         }
