@@ -276,7 +276,6 @@
             android:layout_marginBottom="10dp"
             android:inputType="numberDecimal"
             android:id="@+id/feesView"
-            android:text="1.5"
             android:hint="Fees, eg, 1.5" />
 
         <androidx.appcompat.widget.AppCompatButton
