@@ -36,6 +36,7 @@ class SdkWrapperActivity : AppCompatActivity() {
         const val FIELDS = "fields"
         const val LT = "limits"
         internal const val ENV = "enviroment"
+        const val FEES = "fees"
 
         fun start(
             activity: Activity,
@@ -52,7 +53,8 @@ class SdkWrapperActivity : AppCompatActivity() {
             isTrial: Boolean = false,
             signatureFields: LinkedHashMap<String, Any?> = linkedMapOf(),
             limits: String? = null,
-            @StyleRes customTheme: Int = -1
+            @StyleRes customTheme: Int = -1,
+            fees: String
         ) {
             val newActivity = Intent(activity, SdkWrapperActivity::class.java)
             newActivity.putExtra(LM, lightMode)
@@ -69,6 +71,7 @@ class SdkWrapperActivity : AppCompatActivity() {
             newActivity.putExtra(FIELDS, signatureFields)
             newActivity.putExtra(LT, limits)
             newActivity.putExtra(CUSTOM_THEME, customTheme)
+            newActivity.putExtra(FEES, fees)
             activity.startActivity(newActivity)
         }
     }
@@ -105,7 +108,8 @@ class SdkWrapperActivity : AppCompatActivity() {
             yearlyLimitMax = linkedHashMap["yearlyMax"],
             transactionLimitMax = linkedHashMap["transactionMax"],
             type = intent.getSerializableExtra(UT) as? SonectSDK.Config.UserConfig.Type,
-            isTrial = intent.getBooleanExtra(TRIAL, false)
+            isTrial = intent.getBooleanExtra(TRIAL, false),
+            fees = intent.getStringExtra(FEES)?.toFloat() ?: 1.5f
         )
 
         val configBuilder = builder

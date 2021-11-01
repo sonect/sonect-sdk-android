@@ -95,6 +95,8 @@ class MainActivity : AppCompatActivity() {
                 -1
             }
 
+            val fee = feesView.text.toString()
+
             SdkWrapperActivity.start(
                 this,
                 chkLight.isChecked,
@@ -109,7 +111,8 @@ class MainActivity : AppCompatActivity() {
                 userType = userType,
                 isTrial = trialCB.isChecked,
                 limits = Gson().toJson(limits),
-                customTheme = theme
+                customTheme = theme,
+                fees = fee
             )
         }
 
