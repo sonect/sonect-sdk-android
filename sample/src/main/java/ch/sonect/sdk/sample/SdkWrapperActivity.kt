@@ -71,7 +71,7 @@ class SdkWrapperActivity : AppCompatActivity() {
             newActivity.putExtra(FIELDS, signatureFields)
             newActivity.putExtra(LT, limits)
             newActivity.putExtra(CUSTOM_THEME, customTheme)
-            newActivity.putExtra(FEES, fees)
+            if (!fees.isBlank()) newActivity.putExtra(FEES, fees)
             activity.startActivity(newActivity)
         }
     }
