@@ -4,4 +4,6 @@
     <string name="secondary_not_enough_balance">Hey, where\'s Money?</string>
     <string name="not_enough_balance">Seems like not enough $$$, need to do smth!</string>
     <bool name="sonect_should_show_back_on_root">true</bool>
+    <bool name="sonect_should_check_account_status">true</bool>
+    <bool name="sonect_should_present_feedback_forms">true</bool>
 </resources>
