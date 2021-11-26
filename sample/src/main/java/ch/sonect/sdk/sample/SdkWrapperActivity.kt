@@ -109,7 +109,7 @@ class SdkWrapperActivity : AppCompatActivity() {
             transactionLimitMax = linkedHashMap["transactionMax"],
             type = intent.getSerializableExtra(UT) as? SonectSDK.Config.UserConfig.Type,
             isTrial = intent.getBooleanExtra(TRIAL, false),
-            fees = intent.getStringExtra(FEES)?.toFloat() ?: 1.5f
+            fees = intent.getStringExtra(FEES)?.toFloat()
         )
 
         val configBuilder = builder
