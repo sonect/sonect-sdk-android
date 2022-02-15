@@ -14,7 +14,7 @@ def getVersionCode = { ->
 def sonectSdkVersion = "4.10.0"
 
 android {
-    compileSdkVersion 30
+    compileSdkVersion 31
     defaultConfig {
         applicationId "ch.sonect.sdk.sample"
         minSdk 19
