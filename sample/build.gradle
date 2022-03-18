@@ -34,6 +34,7 @@ android {
         missingDimensionStrategy 'sdkDependency', 'external'
         missingDimensionStrategy 'outerInner', 'internal'
         missingDimensionStrategy 'okhttpVersion', 'v4'
+        missingDimensionStrategy 'minSdkVersion', 'minSdk21'
     }
 
     signingConfigs {
