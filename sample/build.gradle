@@ -11,7 +11,7 @@ def getVersionCode = { ->
     return code
 }
 
-def sonectSdkVersion = "4.12.1"
+def sonectSdkVersion = "4.12.3"
 
 android {
     compileSdkVersion 31
