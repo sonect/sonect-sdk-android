@@ -8,4 +8,5 @@
     <bool name="sonect_should_present_feedback_forms">true</bool>
     <bool name="sonect_is_logs_enabled">true</bool>
     <bool name="sonect_is_wallet_enabled">true</bool>
+    <bool name="sonect_allow_sensitive_screens_screenshots">true</bool>
 </resources>
