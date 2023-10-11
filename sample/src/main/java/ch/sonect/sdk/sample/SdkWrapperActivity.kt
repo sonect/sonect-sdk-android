@@ -12,6 +12,7 @@ import ch.sonect.sdk.SonectSDK
 import ch.sonect.sdk.contract.BrandingManager
 import ch.sonect.sdk.paymentPlugins.PaymentConfig
 import ch.sonect.sdk.paymentPlugins.PaymentPlugin
+import ch.sonect.sdk.paymentPlugins.wallet.WalletPaymentPlugin
 import ch.sonect.sdk.profile.screen.SdkActionsCallback
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
@@ -148,6 +149,10 @@ class SdkWrapperActivity : AppCompatActivity() {
                 )
             )
         }
+
+        configBuilder.addPaymentPlugin(
+            WalletPaymentPlugin(this)
+        )
 
         if (intent.getBooleanExtra(LM, false)) {
             configBuilder.setLightTheme()

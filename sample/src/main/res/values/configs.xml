@@ -7,4 +7,5 @@
     <bool name="sonect_should_check_account_status">true</bool>
     <bool name="sonect_should_present_feedback_forms">true</bool>
     <bool name="sonect_is_logs_enabled">true</bool>
+    <bool name="sonect_is_wallet_enabled">true</bool>
 </resources>
