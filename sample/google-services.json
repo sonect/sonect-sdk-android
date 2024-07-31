@@ -8,25 +8,17 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:247044194056:android:3dee93e215c7694b",
+        "mobilesdk_app_id": "1:247044194056:android:cc4525d54f213544a136bd",
         "android_client_info": {
-          "package_name": "ch.sonect.app"
+          "package_name": "app.sonect.shop.axepta"
         }
       },
       "oauth_client": [
         {
-          "client_id": "247044194056-jah6m0ji9h9qsummf2j98kb7j1dlgg7c.apps.googleusercontent.com",
+          "client_id": "247044194056-gigcqqc98f189jn173266l6mp6rudcun.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "ch.sonect.app",
-            "certificate_hash": "77956bc8fe02e994ab2cbf2979e72e3348137ef2"
-          }
-        },
-        {
-          "client_id": "247044194056-b19nqng1s7eqoers0rabves5pbcjemhl.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "ch.sonect.app",
+            "package_name": "app.sonect.shop.axepta",
             "certificate_hash": "ec1057c65f136bf69927956aa4ffb6b608015d1c"
           }
         },
@@ -48,10 +40,265 @@
               "client_type": 3
             },
             {
-              "client_id": "247044194056-ec2gbbvhb4j5jvgi0oujct0f7do8bgrc.apps.googleusercontent.com",
+              "client_id": "247044194056-10oj3mkevlfne2s0hckdda231slhaftg.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "ch.sonect.app.shop.test"
+                "bundle_id": "ch.sonect.sdk.shop.integrationapp",
+                "app_store_id": "1499312951"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:247044194056:android:8a0001d99f7b0390a136bd",
+        "android_client_info": {
+          "package_name": "app.sonect.shop.axepta.dev"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "247044194056-ca8ts280msgu7cvaeutjpv687uvpocqd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCOcZLuuHs0LsmXkDn5z6jFyOA6yH2PWWc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "247044194056-ca8ts280msgu7cvaeutjpv687uvpocqd.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "247044194056-10oj3mkevlfne2s0hckdda231slhaftg.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "ch.sonect.sdk.shop.integrationapp",
+                "app_store_id": "1499312951"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:247044194056:android:5789d39b70ad0bf7a136bd",
+        "android_client_info": {
+          "package_name": "app.sonect.shop.axepta.test"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "247044194056-ca8ts280msgu7cvaeutjpv687uvpocqd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCOcZLuuHs0LsmXkDn5z6jFyOA6yH2PWWc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "247044194056-ca8ts280msgu7cvaeutjpv687uvpocqd.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "247044194056-10oj3mkevlfne2s0hckdda231slhaftg.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "ch.sonect.sdk.shop.integrationapp",
+                "app_store_id": "1499312951"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:247044194056:android:9627c104acb8ee44a136bd",
+        "android_client_info": {
+          "package_name": "app.sonect.user.jic"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "247044194056-d8e0fg7miuvcanteknofs7kjjgjp2ssr.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "app.sonect.user.jic",
+            "certificate_hash": "ec1057c65f136bf69927956aa4ffb6b608015d1c"
+          }
+        },
+        {
+          "client_id": "247044194056-ca8ts280msgu7cvaeutjpv687uvpocqd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCOcZLuuHs0LsmXkDn5z6jFyOA6yH2PWWc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "247044194056-ca8ts280msgu7cvaeutjpv687uvpocqd.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "247044194056-10oj3mkevlfne2s0hckdda231slhaftg.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "ch.sonect.sdk.shop.integrationapp",
+                "app_store_id": "1499312951"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:247044194056:android:7d74b91f41339898a136bd",
+        "android_client_info": {
+          "package_name": "app.sonect.user.jic.dev"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "247044194056-vkpcgfq7km9vuhi5v2ndmb3uj1qssrn0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "app.sonect.user.jic.dev",
+            "certificate_hash": "77956bc8fe02e994ab2cbf2979e72e3348137ef2"
+          }
+        },
+        {
+          "client_id": "247044194056-ca8ts280msgu7cvaeutjpv687uvpocqd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCOcZLuuHs0LsmXkDn5z6jFyOA6yH2PWWc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "247044194056-ca8ts280msgu7cvaeutjpv687uvpocqd.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "247044194056-10oj3mkevlfne2s0hckdda231slhaftg.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "ch.sonect.sdk.shop.integrationapp",
+                "app_store_id": "1499312951"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:247044194056:android:54a3cc59e6f2500ba136bd",
+        "android_client_info": {
+          "package_name": "app.sonect.user.jic.test"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "247044194056-ca8ts280msgu7cvaeutjpv687uvpocqd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCOcZLuuHs0LsmXkDn5z6jFyOA6yH2PWWc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "247044194056-ca8ts280msgu7cvaeutjpv687uvpocqd.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "247044194056-10oj3mkevlfne2s0hckdda231slhaftg.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "ch.sonect.sdk.shop.integrationapp",
+                "app_store_id": "1499312951"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:247044194056:android:3dee93e215c7694b",
+        "android_client_info": {
+          "package_name": "ch.sonect.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "247044194056-b19nqng1s7eqoers0rabves5pbcjemhl.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "ch.sonect.app",
+            "certificate_hash": "ec1057c65f136bf69927956aa4ffb6b608015d1c"
+          }
+        },
+        {
+          "client_id": "247044194056-jah6m0ji9h9qsummf2j98kb7j1dlgg7c.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "ch.sonect.app",
+            "certificate_hash": "77956bc8fe02e994ab2cbf2979e72e3348137ef2"
+          }
+        },
+        {
+          "client_id": "247044194056-ca8ts280msgu7cvaeutjpv687uvpocqd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCOcZLuuHs0LsmXkDn5z6jFyOA6yH2PWWc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "247044194056-ca8ts280msgu7cvaeutjpv687uvpocqd.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "247044194056-10oj3mkevlfne2s0hckdda231slhaftg.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "ch.sonect.sdk.shop.integrationapp",
+                "app_store_id": "1499312951"
               }
             }
           ]
@@ -84,10 +331,11 @@
               "client_type": 3
             },
             {
-              "client_id": "247044194056-ec2gbbvhb4j5jvgi0oujct0f7do8bgrc.apps.googleusercontent.com",
+              "client_id": "247044194056-10oj3mkevlfne2s0hckdda231slhaftg.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "ch.sonect.app.shop.test"
+                "bundle_id": "ch.sonect.sdk.shop.integrationapp",
+                "app_store_id": "1499312951"
               }
             }
           ]
@@ -128,10 +376,11 @@
               "client_type": 3
             },
             {
-              "client_id": "247044194056-ec2gbbvhb4j5jvgi0oujct0f7do8bgrc.apps.googleusercontent.com",
+              "client_id": "247044194056-10oj3mkevlfne2s0hckdda231slhaftg.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "ch.sonect.app.shop.test"
+                "bundle_id": "ch.sonect.sdk.shop.integrationapp",
+                "app_store_id": "1499312951"
               }
             }
           ]
@@ -164,10 +413,11 @@
               "client_type": 3
             },
             {
-              "client_id": "247044194056-ec2gbbvhb4j5jvgi0oujct0f7do8bgrc.apps.googleusercontent.com",
+              "client_id": "247044194056-10oj3mkevlfne2s0hckdda231slhaftg.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "ch.sonect.app.shop.test"
+                "bundle_id": "ch.sonect.sdk.shop.integrationapp",
+                "app_store_id": "1499312951"
               }
             }
           ]
@@ -200,10 +450,11 @@
               "client_type": 3
             },
             {
-              "client_id": "247044194056-ec2gbbvhb4j5jvgi0oujct0f7do8bgrc.apps.googleusercontent.com",
+              "client_id": "247044194056-10oj3mkevlfne2s0hckdda231slhaftg.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "ch.sonect.app.shop.test"
+                "bundle_id": "ch.sonect.sdk.shop.integrationapp",
+                "app_store_id": "1499312951"
               }
             }
           ]
@@ -244,10 +495,11 @@
               "client_type": 3
             },
             {
-              "client_id": "247044194056-ec2gbbvhb4j5jvgi0oujct0f7do8bgrc.apps.googleusercontent.com",
+              "client_id": "247044194056-10oj3mkevlfne2s0hckdda231slhaftg.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "ch.sonect.app.shop.test"
+                "bundle_id": "ch.sonect.sdk.shop.integrationapp",
+                "app_store_id": "1499312951"
               }
             }
           ]
@@ -280,10 +532,11 @@
               "client_type": 3
             },
             {
-              "client_id": "247044194056-ec2gbbvhb4j5jvgi0oujct0f7do8bgrc.apps.googleusercontent.com",
+              "client_id": "247044194056-10oj3mkevlfne2s0hckdda231slhaftg.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "ch.sonect.app.shop.test"
+                "bundle_id": "ch.sonect.sdk.shop.integrationapp",
+                "app_store_id": "1499312951"
               }
             }
           ]
@@ -316,10 +569,146 @@
               "client_type": 3
             },
             {
-              "client_id": "247044194056-ec2gbbvhb4j5jvgi0oujct0f7do8bgrc.apps.googleusercontent.com",
+              "client_id": "247044194056-10oj3mkevlfne2s0hckdda231slhaftg.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "ch.sonect.app.shop.test"
+                "bundle_id": "ch.sonect.sdk.shop.integrationapp",
+                "app_store_id": "1499312951"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:247044194056:android:c30fb2506e183686a136bd",
+        "android_client_info": {
+          "package_name": "mx.sonect.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "247044194056-dp29oks1oinptef94t85tg92r75k24cc.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "mx.sonect.app",
+            "certificate_hash": "ec1057c65f136bf69927956aa4ffb6b608015d1c"
+          }
+        },
+        {
+          "client_id": "247044194056-e19vakh07jplt6h8rdkh9g2pcre8qb6g.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "mx.sonect.app",
+            "certificate_hash": "77956bc8fe02e994ab2cbf2979e72e3348137ef2"
+          }
+        },
+        {
+          "client_id": "247044194056-ca8ts280msgu7cvaeutjpv687uvpocqd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCOcZLuuHs0LsmXkDn5z6jFyOA6yH2PWWc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "247044194056-ca8ts280msgu7cvaeutjpv687uvpocqd.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "247044194056-10oj3mkevlfne2s0hckdda231slhaftg.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "ch.sonect.sdk.shop.integrationapp",
+                "app_store_id": "1499312951"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:247044194056:android:d6c51b30b4f95e74a136bd",
+        "android_client_info": {
+          "package_name": "mx.sonect.app.dev"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "247044194056-ca8ts280msgu7cvaeutjpv687uvpocqd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCOcZLuuHs0LsmXkDn5z6jFyOA6yH2PWWc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "247044194056-ca8ts280msgu7cvaeutjpv687uvpocqd.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "247044194056-10oj3mkevlfne2s0hckdda231slhaftg.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "ch.sonect.sdk.shop.integrationapp",
+                "app_store_id": "1499312951"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:247044194056:android:972a8855729cb8c6a136bd",
+        "android_client_info": {
+          "package_name": "mx.sonect.app.test"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "247044194056-2sv813q3211i2l1tuqtskqvrvdtahlpg.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "mx.sonect.app.test",
+            "certificate_hash": "ec1057c65f136bf69927956aa4ffb6b608015d1c"
+          }
+        },
+        {
+          "client_id": "247044194056-ca8ts280msgu7cvaeutjpv687uvpocqd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCOcZLuuHs0LsmXkDn5z6jFyOA6yH2PWWc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "247044194056-ca8ts280msgu7cvaeutjpv687uvpocqd.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "247044194056-10oj3mkevlfne2s0hckdda231slhaftg.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "ch.sonect.sdk.shop.integrationapp",
+                "app_store_id": "1499312951"
               }
             }
           ]
